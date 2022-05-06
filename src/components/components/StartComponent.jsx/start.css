@@ -1,0 +1,26 @@
+.container {
+  margin: auto;
+}
+
+.startSection {
+  padding-top: 50px;
+}
+
+.startBlokc {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.purple {
+  color: rgb(243, 18, 243);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 44px;
+}
+
+p {
+  font-size: 20px;
+}

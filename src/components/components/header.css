@@ -1,7 +1,9 @@
 .header__inner {
-  background-color: aqua;
   display: flex !important;
+  justify-content: space-between;
   padding: 10px;
+  align-items: center;
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.2);
 
 }
 
@@ -9,23 +11,43 @@ header {
   display: flex;
   justify-content: space-between;
   color: #fff;
-  align-items: center;
+  margin-top: 5px;
+
 }
 
 .searcher {
-  width: 70%;
+  width: 100%;
   border: 0;
   border-radius: 5px;
-  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+  padding-left: 10px;
+  margin-left: 20px;
+
 }
 
 .searcher_block {
   display: flex;
-  width: 40%;
+  width: 60%;
   justify-content: space-between;
+
 }
 
 .headerBtn {
-  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.1);
   text-align: center;
+
+}
+
+.example {
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.1);
+}
+
+.flexBlock {
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
 }

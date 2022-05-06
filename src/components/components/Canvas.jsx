@@ -13,8 +13,8 @@ function OffCanvasExample({ name, ...props }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} className="me-2">
-        {name}
+      <Button variant="primary" onClick={handleShow} className="me-2 example">
+        Жаг1 бу
       </Button>
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <OffcanvasHeader closeButton>
