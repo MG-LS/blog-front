@@ -26,9 +26,6 @@ export default function auth(state = initialState, action) {
       };
 
 
-
-
-
       case "auth/signin/pending":
         return {
           ...state,
