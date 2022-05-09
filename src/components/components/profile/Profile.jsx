@@ -1,0 +1,35 @@
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { addImage, getImage } from "../../../redux/reducers/image";
+
+const Profile = () => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const [file, setFile] = useState();
+  const users = useSelector((state) => state.imgReducer.users);
+  console.log(users);
+  useEffect(() => {
+    dispatch(getImage(id));
+  }, [dispatch]);
+
+  const handleImage = () => {
+    dispatch(addImage(id, file));
+  };
+
+  return (
+    <div>
+      <input onChange={(e) => setFile(e.target.files[0])} type="file" />
+      <div>
+        {users.map((item) => {
+          if (item._id === id) {
+            return <img src={`http://localhost:8000/${item.img}`} />;
+          }
+        })}
+      </div>
+      <button onClick={handleImage}>Изменить фото</button>
+    </div>
+  );
+};
+
+export default Profile;

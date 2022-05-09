@@ -14,7 +14,8 @@ const Header = () => {
 
   const unSign = () => {
     localStorage.removeItem('token')
-    navigate('/')
+    localStorage.removeItem('id')
+    window.location.reload()
   }
 
   return (
