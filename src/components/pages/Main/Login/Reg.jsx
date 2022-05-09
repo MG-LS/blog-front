@@ -10,10 +10,13 @@ const Reg = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [nickname, setNickname] = useState("");
 
   const error = useSelector((state) => state.auth.error);
   const navigate = useNavigate();
-
+  const handleChangeNickname = (e) => {
+    setNickname(e.target.value);
+  };
   const handleChangeLogin = (e) => {
     setEmail(e.target.value);
   };
@@ -21,13 +24,14 @@ const Reg = () => {
     setPassword(e.target.value);
   };
   const handleSumbit = () => {
-    dispatch(createUser(email, password));
+    dispatch(createUser(email, password, nickname));
     setEmail("");
+    setNickname("");
     setPassword("");
     if (!error) {
       setTimeout(() => {
         navigate("/login");
-      }, 2000);
+      }, 1000);
     }
   };
   return (
@@ -48,6 +52,13 @@ const Reg = () => {
             </div>
           )}
           <p className="textForReg">CНАЧАЛА НУЖНО ЗАРЕГИСТРИРОВАТЬСЯ</p>
+          <input
+            type="text"
+            placeholder="Придумайте ник"
+            className="form-control"
+            value={nickname}
+            onChange={handleChangeNickname}
+          />
           <input
             type="text"
             placeholder="Ваш E-Mail"

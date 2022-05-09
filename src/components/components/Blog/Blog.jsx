@@ -14,37 +14,76 @@ const Blog = () => {
 
   const [blogTitle, setBlogTitle] = useState("");
   const [blogText, setBlogText] = useState("");
-  const [blogImg, setBlogImg] = useState("");
+  const [photo, setPhoto] = useState("")
+  const [preview, setPreview] = useState('')
 
   const addBlogText = () => {
-    dispatch(addBlog(blogTitle, blogText, blogImg, idUser ));
+    console.log(photo)
+    dispatch(addBlog(photo, idUser, blogTitle, blogText));
   };
 
-  // useEffect(() => {
-  //   dispatch(loadTodos());
-  // }, [dispatch]);
+  useEffect(() => {
+    if (photo) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setPreview(reader.result)
+      };
+      reader.readAsDataURL(photo)
+    } else {
+      setPreview(null)
+    }
+  }, [dispatch, photo]);
 
   return (
     <>
       <BlogHeader />
       <div className="blog_text">
-        <div class="form-group">
-          <label class="control-label col-sm-23" for="comment">
+        <div className="form-group">
+          <label className="control-label col-sm-23" htmlFor="comment">
             Выберите файл:
           </label>
-          <div class="col-sm-10">
-            <input type="file" rows="5" id="comment"></input>
+          <div className="col-sm-10">
+          <input
+                type="file"
+                id="upload"
+                hidden
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.target.files[0];
+                  if (file && file.type.substring(0, 5) === "image") {
+                    setPhoto(file);
+                  } else {
+                    setPhoto(null);
+                  }
+                }}
+                />
+            {preview ? (
+                <>
+                  <img src={preview} alt="" />
+                  <label htmlFor="upload">
+                    <ion-icon name="create-outline"></ion-icon>
+                  </label>{" "}
+                </>
+              ) : (
+                <label htmlFor="upload">
+                  <img
+                    style={{'width': '30px'}}
+                    src="https://www.babypillowth.com/images/templates/upload.png"
+                    alt=""
+                  />
+                </label>
+              )}
           </div>
         </div>
-        <div class="contact-form">
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="fname">
+        <div className="contact-form">
+          <div className="form-group">
+            <label className="control-label col-sm-2" htmlFor="fname">
               Название блога:
             </label>
-            <div class="col-sm-10">
+            <div className="col-sm-10">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="fname"
                 placeholder="Введите название"
                 name="fname"
@@ -55,16 +94,16 @@ const Blog = () => {
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="comment">
+          <div className="form-group">
+            <label class="control-label col-sm-2" htmlFor="comment">
               Введите текст:
             </label>
-            <div class="col-sm-10">
-              <input value={blogText} class="form-control" rows="5" id="comment" onChange={(e) => setBlogText(e.target.value)}></input>
+            <div className="col-sm-10">
+              <input value={blogText} className="form-control" rows="5" id="comment" onChange={(e) => setBlogText(e.target.value)}></input>
             </div>
           </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
+          <div className="form-group">
+            <div className="col-sm-offset-2 col-sm-10">
               <Button className="headerBtn" onClick={() => addBlogText()}>Опубликовать</Button>
             </div>
           </div>

@@ -2,7 +2,8 @@ const initialState = {
   signinUp: false,
   signinIn: false,
   error: null,
-  token: localStorage.getItem('token')
+  token: localStorage.getItem('token'),
+  userId: localStorage.getItem('id')
 };
 
 export default function auth(state = initialState, action) {
@@ -24,6 +25,8 @@ export default function auth(state = initialState, action) {
         signinUp: false,
         error: action.error
       };
+
+
 
 
       case "auth/signin/pending":
@@ -49,12 +52,12 @@ export default function auth(state = initialState, action) {
   }
 }
 
-export const createUser = (email, password) => {
+export const createUser = (email, password, nickname) => {
   return async (dispatch) => {
     dispatch({ type: "auth/signup/pending" });
     const res = await fetch("http://localhost:8000/reg", {
       method: "POST",
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, nickname }),
       headers: {
         "Content-type": "application/json",
       },
@@ -84,6 +87,7 @@ export const authUser = (email, password) => {
     if (res.status === 200) {
       dispatch({ type: "auth/signin/fulfilled", payload: json });
       localStorage.setItem('token', json.accessToken)
+      localStorage.setItem('id', json.user.id)
     } else {
       dispatch({ type: "auth/signin/rejected", error: json.message });
     }
