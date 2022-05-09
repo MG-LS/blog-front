@@ -1,17 +1,27 @@
 .header__inner {
+  max-width: 1400px;
+  margin: auto;
   display: flex !important;
   justify-content: space-between;
   padding: 10px;
   align-items: center;
-  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.2);
 
 }
 
+/* .container {
+  max-width: 1400px;
+} */
+
 header {
+  width: 100%;
+  position: fixed;
+  padding: 0;
+  margin: 0;
   display: flex;
   justify-content: space-between;
-  color: #fff;
+  background-color: #fff;
   margin-top: 5px;
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.2);
 
 }
 
@@ -36,6 +46,7 @@ header {
 .headerBtn {
   box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.1);
   text-align: center;
+  margin-left: 5px;
 
 }
 
@@ -45,12 +56,27 @@ header {
 
 .flexBlock {
   display: flex;
+  width: 50%;
 }
 
 .buttons {
+  width: 30%;
   display: flex;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 768px) {
+  .coll {
+    display: none;
+  }
+
+  .auth {
+    margin-left: 40px;
+  }
+
+  .flexBlock {
+    width: 100%;
+  }
 .headerBtn a{
   text-decoration: none;
   color: white;

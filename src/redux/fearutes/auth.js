@@ -27,6 +27,8 @@ export default function auth(state = initialState, action) {
       };
 
 
+
+
       case "auth/signin/pending":
         return {
           ...state,
@@ -50,12 +52,12 @@ export default function auth(state = initialState, action) {
   }
 }
 
-export const createUser = (email, password) => {
+export const createUser = (email, password, nickname) => {
   return async (dispatch) => {
     dispatch({ type: "auth/signup/pending" });
     const res = await fetch("http://localhost:8000/reg", {
       method: "POST",
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, nickname }),
       headers: {
         "Content-type": "application/json",
       },

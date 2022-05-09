@@ -3,7 +3,7 @@
 }
 
 .startSection {
-  padding-top: 50px;
+  padding-top: 150px;
 }
 
 .startBlokc {
@@ -18,9 +18,51 @@
 }
 
 h1 {
-  font-size: 44px;
+  font-size: 58px;
+  font-weight: bold;
 }
 
 p {
   font-size: 20px;
+}
+
+.startImg {
+  max-width: 100%;
+}
+
+.largeBtn {
+  width: 190px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  border: 0;
+  background-color: #0d6efd;
+  color: #fff;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .startBlokc {
+    flex-wrap: wrap;
+  }
+
+  h1, p {
+    text-align: center;
+  }
+
+  .largeBtnBlock {
+    width: 190px;
+    margin: auto;
+  }
+
+  .largeBtn {
+    margin: auto;
+  }
+
+  .startImg {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
 }
