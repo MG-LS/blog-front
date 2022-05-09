@@ -65,6 +65,10 @@ header {
   justify-content: space-between;
 }
 
+.prof {
+  margin-left: 10px;
+}
+
 @media screen and (max-width: 768px) {
   .coll {
     display: none;
@@ -77,7 +81,9 @@ header {
   .flexBlock {
     width: 100%;
   }
-.headerBtn a{
-  text-decoration: none;
-  color: white;
+
+  .headerBtn a {
+    text-decoration: none;
+    color: white;
+  }
 }
