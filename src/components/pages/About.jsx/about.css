@@ -1,0 +1,39 @@
+.aboutContant {
+  padding-top: 100px;
+}
+
+.aboutTitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+span {
+  background-image: linear-gradient(to right, #432ff5, #526bf5, rgb(7, 167, 241));
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.aboutText {
+  margin-top: 20px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.aboutImg {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.mapImage {
+  width: 50%;
+}
+
+h3 {
+  text-align: center;
+  width: 100px;
+  margin: auto;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
