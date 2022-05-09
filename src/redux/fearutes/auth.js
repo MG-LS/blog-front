@@ -2,7 +2,8 @@ const initialState = {
   signinUp: false,
   signinIn: false,
   error: null,
-  token: localStorage.getItem('token')
+  token: localStorage.getItem('token'),
+  userId: localStorage.getItem('id')
 };
 
 export default function auth(state = initialState, action) {
@@ -86,6 +87,7 @@ export const authUser = (email, password) => {
     if (res.status === 200) {
       dispatch({ type: "auth/signin/fulfilled", payload: json });
       localStorage.setItem('token', json.accessToken)
+      localStorage.setItem('id', json.user.id)
     } else {
       dispatch({ type: "auth/signin/rejected", error: json.message });
     }
