@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const token = useSelector((state) => state.auth.token);
-  const navigate = useNavigate();
+
 
   const unSign = () => {
     localStorage.removeItem('token')

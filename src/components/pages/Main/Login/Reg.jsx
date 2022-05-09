@@ -24,15 +24,11 @@ const Reg = () => {
     setPassword(e.target.value);
   };
   const handleSumbit = () => {
-    dispatch(createUser(email, password, nickname));
     setEmail("");
     setNickname("");
     setPassword("");
-    if (!error) {
-      setTimeout(() => {
-        navigate("/login");
-      }, 1000);
-    }
+
+    dispatch(createUser(email, password, nickname, navigate));
   };
   return (
     <div className="content__login">
@@ -74,9 +70,19 @@ const Reg = () => {
             className="form-control"
             onChange={handleChangePassword}
           />
+
           <div className="btnPAPA">
-            <button className="btnDENI" onClick={handleSumbit}>
-              <span>ЗАРЕГИСТРИРОВАТЬСЯ</span>
+            <button
+              data-text="Awesome"
+              className="btnDENI"
+              onClick={handleSumbit}
+            >
+              <span className="actual-text">
+                &nbsp;ЗАРЕГИСТРИРОВАТЬСЯ&nbsp;
+              </span>
+              <span className="hover-text" aria-hidden="true">
+                &nbsp;ЗАРЕГИСТРИРОВАТЬСЯ&nbsp;
+              </span>
             </button>
           </div>
           <a className="aforLog" href="/login">
