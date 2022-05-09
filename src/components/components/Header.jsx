@@ -11,8 +11,9 @@ const Header = () => {
   const navigate = useNavigate();
 
   const unSign = () => {
-    localStorage.removeItem("token");
-    navigate("/");
+    localStorage.removeItem('token')
+    localStorage.removeItem('id')
+    window.location.reload()
   };
 
   return (
