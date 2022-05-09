@@ -20,9 +20,11 @@ const Header = () => {
       <div className="container">
         <div className="header__inner">
           <div className="flexBlock">
-            <div>
-              <img className="logo" src={logo} alt="error" />
-            </div>
+            <Link to={"/"}>
+              <div>
+                <img className="logo" src={logo} alt="error" />
+              </div>
+            </Link>
             <div className="searcher_block">
               <input type="text" placeholder="Search" className="searcher" />
             </div>
@@ -30,14 +32,17 @@ const Header = () => {
           <div className="buttons">
             <Button className="headerBtn coll">Написать</Button>
             <Button className="headerBtn coll">Пусто</Button>
-              {token ? (
-              <Button onClick={unSign} className="headerBtn auth">
-                <Link to={"/"}>Выйти</Link>
-              </Button>
+            <Button className="headerBtn prof">Профиль</Button>
+            {token ? (
+              <Link to={"/"}>
+                <Button onClick={unSign} className="headerBtn auth">
+                  Выйти
+                </Button>
+              </Link>
             ) : (
-              <Button className="headerBtn auth">
-                <Link to={"/reg"}>Войти</Link>
-              </Button>
+              <Link to={"/reg"}>
+                <Button className="headerBtn auth">Войти</Button>
+              </Link>
             )}
           </div>
         </div>
