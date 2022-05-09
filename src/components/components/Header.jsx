@@ -32,6 +32,7 @@ const Header = () => {
           <div className="col-md-4 my-2  buttons">
             <Button className="headerBtn">Написать</Button>
             <Button className="headerBtn">Пусто</Button>
+            {token ? <Button onClick={unSign} className="headerBtn"><Link to={'/'}>Выйти</Link></Button> : <Button className="headerBtn"><Link to={'/blog'}>Блог</Link></Button>}
             {token ? <Button onClick={unSign} className="headerBtn"><Link to={'/'}>Выйти</Link></Button> : <Button className="headerBtn"><Link to={'/reg'}>Войти</Link></Button>}
              
           </div>

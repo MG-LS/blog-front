@@ -95,6 +95,7 @@ export const addBlog = (vTitle, vText, vImg, idUser) => {
         }),
       });
       const json = await response.json();
+      
       dispatch({ type: "add/blog/fetch/fulfilled", payload: json });
     } catch (error) {
       dispatch({
