@@ -13,6 +13,7 @@ const Reg = () => {
   const [nickname, setNickname] = useState("");
 
   const error = useSelector((state) => state.auth.error);
+  console.log(error);
   const navigate = useNavigate();
   const handleChangeNickname = (e) => {
     setNickname(e.target.value);
