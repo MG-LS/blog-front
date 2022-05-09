@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+.login__header {
+  width: 100%;
+}
+.login__header-img {
+  width: 200px;
+  margin: auto;
+}
+hr {
+  margin: 0;
+}
+.login__header-img img {
+  padding-top: 15px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+.textForReg {
+  font-size: 21px;
+  height: 40px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  font-family: "Cormorant Garamond";
+}
+.textForRegLog{
+  font-size: 33px;
+  height: 40px;
+  font-weight: 700;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+  font-family: "Cormorant Garamond";
+}
+.aforLog{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.error {
+  font-size: 20px;
+}
+.main__container {
+  background-color: rgba(250, 251, 255);
+  margin: auto;
+}
+.auth__container {
+  width: 450px;
+  height: 102vh;
+  margin: auto;
+  padding-top: 140px;
+}
+.form-control {
+  border: none;
+  margin-bottom: 40px;
+  height: 70px;
+  font-size: 25px;
+  border-radius: 5px;
+}
+.form-control:focus {
+  box-shadow: -1px 0px 10px 1px #0d57ff;
+}
+.btnPAPA {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+/* From uiverse.io by @Cornerstone-04 */
+.btnDENI {
+  cursor: pointer;
+  background: transparent;
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  outline: none;
+  border: 2px solid #0d57ff;
+  margin: 40px;
+  width: 300px;
+  height: 60px;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: 2px;
+  color: #0d57ff;
+  -webkit-box-reflect: below 0px linear-gradient(transparent, #0002);
+  transition: 0.45s;
+  transition-delay: 0s;
+}
+
+.btnDENI:hover {
+  transition-delay: 1.5s;
+  color: white;
+  box-shadow: 0 0 10px #0d57ff, 0 0 20px #0d57ff, 0 0 40px #0d57ff,
+    0 0 80px #0d57ff, 0 0 100px #0d57ff;
+}
+
+.btnDENI span {
+  position: relative;
+  z-index: 100;
+}
+
+.btnDENI::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background: #0d57ff;
+  box-shadow: 5px -8px 0 #0d57ff, 5px 8px 0 #0d57ff;
+  transition: width 0.5s, left 0.5s, height 0.5s, box-shadow 0.5s;
+  transition-delay: 1s, 0.5s, 0s, 0s;
+}
+
+.btnDENI:hover::before {
+  width: 60%;
+  height: 100%;
+  /* right: -2px; */
+  left: -2px;
+  box-shadow: 5px 0 0 #0d57ff, 5px 0 0 #0d57ff;
+  transition-delay: 0s, 0.5s, 1s, 1s;
+}
+
+.btnDENI::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background: #0d57ff;
+  box-shadow: -5px -8px 0 #0d57ff, -5px 8px 0 #0d57ff;
+  transition: width 0.5s, right 0.5s, height 0.5s, box-shadow 0.5s;
+  transition-delay: 1s, 0.5s, 0s, 0s;
+}
+
+.btnDENI:hover::after {
+  width: 60%;
+  height: 102%;
+  right: -2px;
+  box-shadow: -5px 0 0 #0d57ff, -5px 0 0 #0d57ff;
+  transition-delay: 0s, 0.5s, 1s, 1s;
+}
