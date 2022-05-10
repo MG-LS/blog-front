@@ -10,9 +10,9 @@ const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
   const error = useSelector((state) => state.auth.error);
+  const loading = useSelector((state) => state.auth.loading);
 
   const handleChangeLogin = (e) => {
     setEmail(e.target.value);
@@ -60,16 +60,30 @@ const Login = () => {
             onChange={handleChangePassword}
           />
           <div className="btnPAPA">
-            <button
-              data-text="Awesome"
-              className="btnDENI"
-              onClick={handleSumbit}
-            >
-              <span className="actual-text">&nbsp;ВОЙТИ&nbsp;</span>
-              <span className="hover-text" aria-hidden="true">
-                &nbsp;ВОЙТИ&nbsp;
-              </span>
-            </button>
+          {loading ? (
+              <div class="spinner">
+              <span>L</span>
+              <span>O</span>
+              <span>A</span>
+              <span>D</span>
+              <span>I</span>
+              <span>N</span>
+              <span>G</span>
+            </div>
+            ) : (
+              <button
+                data-text="Awesome"
+                className="btnDENI"
+                onClick={handleSumbit}
+              >
+                <span className="actual-text">
+                  &nbsp;ВОЙТИ&nbsp;
+                </span>
+                <span className="hover-text" aria-hidden="true">
+                  &nbsp;ВОЙТИ&nbsp;
+                </span>
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ const initialState = {
   signinUp: false,
   signinIn: false,
   error: null,
+  loading: false,
   token: localStorage.getItem("token"),
   userId: localStorage.getItem("id"),
 };
@@ -12,23 +13,27 @@ export default function auth(state = initialState, action) {
       return {
         ...state,
         signinUp: true,
+        loading: true,
         error: null,
       };
     case "auth/signup/fulfilled":
       return {
         ...state,
         signinUp: false,
+        loading: false,
       };
     case "auth/signup/rejected":
       return {
         ...state,
         signinUp: false,
         error: action.error,
+        loading: false,
       };
 
     case "auth/signin/pending":
       return {
         ...state,
+        loading: true,
         signinIn: true,
         error: null,
       };
@@ -36,11 +41,13 @@ export default function auth(state = initialState, action) {
       return {
         ...state,
         signinIn: false,
+        loading: false,
         token: action.payload.accessToken,
       };
     case "auth/signin/rejected":
       return {
         ...state,
+        loading: false,
         signinIn: false,
         error: action.error,
       };

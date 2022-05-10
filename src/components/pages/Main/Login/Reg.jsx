@@ -11,7 +11,8 @@ const Reg = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
-
+  
+  const loading = useSelector((state) => state.auth.loading);
   const error = useSelector((state) => state.auth.error);
   const navigate = useNavigate();
   const handleChangeNickname = (e) => {
@@ -72,18 +73,30 @@ const Reg = () => {
           />
 
           <div className="btnPAPA">
-            <button
-              data-text="Awesome"
-              className="btnDENI"
-              onClick={handleSumbit}
-            >
-              <span className="actual-text">
-                &nbsp;ЗАРЕГИСТРИРОВАТЬСЯ&nbsp;
-              </span>
-              <span className="hover-text" aria-hidden="true">
-                &nbsp;ЗАРЕГИСТРИРОВАТЬСЯ&nbsp;
-              </span>
-            </button>
+          {loading ? (
+              <div class="spinner">
+              <span>L</span>
+              <span>O</span>
+              <span>A</span>
+              <span>D</span>
+              <span>I</span>
+              <span>N</span>
+              <span>G</span>
+            </div>
+            ) : (
+              <button
+                data-text="Awesome"
+                className="btnDENI"
+                onClick={handleSumbit}
+              >
+                <span className="actual-text">
+                  &nbsp;ЗАРЕГИСТРИРОВАТЬСЯ&nbsp;
+                </span>
+                <span className="hover-text" aria-hidden="true">
+                  &nbsp;ЗАРЕГИСТРИРОВАТЬСЯ&nbsp;
+                </span>
+              </button>
+            )}
           </div>
           <a className="aforLog" href="/login">
             <p className="textForReg">Но у тебя уже есть аккаунт?</p>
