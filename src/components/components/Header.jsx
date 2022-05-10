@@ -30,6 +30,14 @@ const Header = () => {
               <input type="text" placeholder="Search" className="searcher" />
             </div>
           </div>
+
+          <div className="col-md-4 my-2  buttons">
+            <Button className="headerBtn">Написать</Button>
+            <Button className="headerBtn">Пусто</Button>
+            {token ? <Button onClick={unSign} className="headerBtn"><Link to={'/'}>Выйти</Link></Button> : <Button className="headerBtn"><Link to={'/blog'}>Блог</Link></Button>}
+            {token ? <Button onClick={unSign} className="headerBtn"><Link to={'/'}>Выйти</Link></Button> : <Button className="headerBtn"><Link to={'/reg'}>Войти</Link></Button>}
+             
+
           <div className="buttons">
             <Button className="headerBtn coll">Написать</Button>
             <Button className="headerBtn coll">Пусто</Button>
@@ -45,8 +53,10 @@ const Header = () => {
                 <Button className="headerBtn auth">Войти</Button>
               </Link>
             )}
+
           </div>
         </div>
+      </div>
       </div>
     </header>
   );

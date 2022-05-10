@@ -24,13 +24,13 @@ export const blogReducer = (state = initialState, action) => {
         ...state,
         load: true,
       };
-    case "add/blog/fetch/pending":
+    case "add/blog/fetch/fulfilled":
       return {
         ...state,
         blog: [...state.blog, action.payload],
         load: false,
       };
-    case "add/blog/fetch/pending":
+    case "add/blog/fetch/rejected":
       return {
         ...state,
         error: action.error,
@@ -80,21 +80,22 @@ export const loadBlog = () => {
   };
 };
 
-export const addBlog = (vTitle, vText, vImg, idUser) => {
+export const addBlog = (file, user, title, text) => {
   return async (dispatch) => {
     try {
       dispatch({ type: "add/blog/fetch/pending" });
+      const formData = new FormData();
+      formData.append("img", file);
+      formData.append("user", user);
+      formData.append("title", title);
+      formData.append("text", text);
       const response = await fetch("http://localhost:8000/blog", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          img: vImg,
-          title: vTitle,
-          text: vText,
-          user: idUser,
-        }),
+        body: formData,
       });
       const json = await response.json();
+      console.log(json)
+
       dispatch({ type: "add/blog/fetch/fulfilled", payload: json });
     } catch (error) {
       dispatch({
