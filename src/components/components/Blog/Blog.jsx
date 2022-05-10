@@ -59,7 +59,7 @@ const Blog = () => {
                 />
             {preview ? (
                 <>
-                  <img src={preview} alt="" />
+                  <img src={preview} alt="" style={{'width': '300px'}} />
                   <label htmlFor="upload">
                     <ion-icon name="create-outline"></ion-icon>
                   </label>{" "}

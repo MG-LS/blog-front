@@ -94,7 +94,6 @@ export const addBlog = (file, user, title, text) => {
         body: formData,
       });
       const json = await response.json();
-      console.log(json)
 
       dispatch({ type: "add/blog/fetch/fulfilled", payload: json });
     } catch (error) {
