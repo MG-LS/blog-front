@@ -11,7 +11,11 @@ import Blog from "./components/components/Blog/Blog";
 import Profile from "./components/components/profile/Profile";
 import ScrollToTop from "./components/components/ScrollToTop";
 import About from "./components/pages/About.jsx/About";
+
 import Footer from "./components/components/Footer/Footer";
+
+import BlogPage from "./components/components/Blog/BlogPage";
+
 
 function App() {
   return (
@@ -29,7 +33,11 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/profile/:id" element={<Profile />} />
 
+
             <Route path='/footer' element={<Footer />} />
+
+
+            <Route path="/post" element={<BlogPage />} />
 
           </Routes>
         </BrowserRouter>
