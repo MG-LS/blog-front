@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
-import { addImage, getImage } from "../../../redux/reducers/image";
+
+import { addImage, createNickName, getImage } from "../../../redux/reducers/image";
 import Header from "../Header";
 import one from "./icons/1.png"
 import two from "./icons/2.png"
@@ -17,10 +18,17 @@ const EditProfile = () => {
     const { id } = useParams();
     const [file, setFile] = useState();
 
+    const [nickname, setNickname] = useState("");
+  
+    const loading = useSelector((state) => state.auth.loading);
+    const error = useSelector((state) => state.auth.error);
+
+    const handleChangeNickname = (e) => {
+      setNickname(e.target.value);
+    };
 
 useEffect(() => {
     dispatch(getImage());
-;
   }, [dispatch, id]);
 
     const user = useSelector((state) =>
@@ -29,8 +37,10 @@ useEffect(() => {
 
     const handleImage = () => {
       dispatch(addImage(id, file));
-
-    };
+      setNickname("");
+      dispatch(createNickName( nickname, id));
+      window.location.reload()
+        };
  
     if(!user) {
         return 'loading...'
@@ -66,7 +76,7 @@ useEffect(() => {
                     <h1 className='h2'>Basic Info</h1>
                     <div className="one__input">
                     <p className="p__full__name">nick name</p>
-                    <input id="full__name" type='text' placeholder={user.nickname} />
+                    <input onChange={handleChangeNickname} id="full__name" type='text' placeholder={user.nickname} />
                     </div>
                     <div className="two__input">
                     <p className="p__full__name">Tags</p>
