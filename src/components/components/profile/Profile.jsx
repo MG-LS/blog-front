@@ -7,8 +7,8 @@ const Profile = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [file, setFile] = useState();
-  const users = useSelector((state) => state.imgReducer.users);
-  console.log(users);
+  const user = useSelector((state) => state.imgReducer.users.find((user) => user._id === id));
+
   useEffect(() => {
     dispatch(getImage(id));
   }, [dispatch]);
@@ -17,15 +17,15 @@ const Profile = () => {
     dispatch(addImage(id, file));
   };
 
+  if(!user) {
+    return 'loading...'
+  }
+
   return (
     <div>
       <input onChange={(e) => setFile(e.target.files[0])} type="file" />
       <div>
-        {users.map((item) => {
-          if (item._id === id) {
-            return <img src={`http://localhost:8000/${item.img}`} />;
-          }
-        })}
+        <img src={`http://localhost:8000/${user.img}`} />
       </div>
       <button onClick={handleImage}>Изменить фото</button>
     </div>
