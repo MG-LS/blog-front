@@ -18,7 +18,6 @@ const BlogPage = () => {
           <div>
             <div key={i}>
               <img src={`http://localhost:8000/${item.img}`} alt="photo" />
-
             </div>
             <div>
               <p>{item.title}</p>
