@@ -3,6 +3,7 @@ import icon from "../../img/mainphoto.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./start.css";
 import Features from "./Features";
+import Footer from "../Footer/Footer";
 
 const Starting = () => {
   return (
@@ -35,6 +36,7 @@ const Starting = () => {
         </div>
       </div>
       <Features />
+      <Footer />
     </section>
   );
 };
