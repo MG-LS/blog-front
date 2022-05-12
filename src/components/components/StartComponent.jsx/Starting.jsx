@@ -2,6 +2,8 @@ import React from "react";
 import icon from "../../img/mainphoto.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./start.css";
+import Features from "./Features";
+import Footer from "../Footer/Footer";
 
 const Starting = () => {
   return (
@@ -12,7 +14,7 @@ const Starting = () => {
             <div>
               <h1>
                 <span className="purple">Home</span> for tech <br />
-                writes and
+                writers and
                 <br /> readers
               </h1>
             </div>
@@ -33,6 +35,8 @@ const Starting = () => {
           </div>
         </div>
       </div>
+      <Features />
+      <Footer />
     </section>
   );
 };
