@@ -15,6 +15,7 @@ import About from "./components/pages/About.jsx/About";
 import Footer from "./components/components/Footer/Footer";
 
 import BlogPage from "./components/components/Blog/BlogPage";
+import EditProfile from "./components/components/profile/EditProfile";
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
 
             <Route path="/about" element={<About />} />
             <Route path="/profile/:id" element={<Profile />} />
-
+            <Route path="/edit/profile/:id" element={<EditProfile />} />
 
             <Route path='/footer' element={<Footer />} />
 
