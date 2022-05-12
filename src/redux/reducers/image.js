@@ -33,7 +33,7 @@ export const imgReducer = (state = initialState, action) => {
       return {
         ...state,
         loader: false,
-        users: action.payload,
+        users:  action.payload
       };
     case "getImage/image/rejected":
       return {
@@ -41,6 +41,25 @@ export const imgReducer = (state = initialState, action) => {
         loader: false,
         error: action.error,
       };
+    case "nickname/stoped/pending":
+      return{
+        ...state,
+        loader: true,
+        error: null
+      }
+    case "nickname/lucky/fulfilled":
+      return{
+        ...state,
+        loader: false,
+        users: action.payload,
+        error: null
+      }
+    case "nickname/error/rejected":
+      return{
+        ...state,
+        loader: false,
+        error: action.error
+      }     
     default:
       return state;
   }
@@ -56,25 +75,49 @@ export const addImage = (id, file) => {
       const res = await fetch(`http://localhost:8000/img/${id}`, {
         method: "PATCH",
         body: formData,
+        
       });
       const data = await res.json();
-      console.log(data);
+
       dispatch({ type: "add/image/fulfilled", payload: data });
     } catch (e) {
       dispatch({ type: "profile/image/rejected", payload: e.toString() });
     }
   };
 };
-export const getImage = (id) => {
+export const getImage = () => {
   return async (dispatch) => {
     dispatch({ type: "getImage/image/pending" });
     try {
       const res = await fetch(`http://localhost:8000/users`);
       const data = await res.json();
-
       dispatch({ type: "getImage/image/fulfilled", payload: data });
+
+
     } catch (e) {
       dispatch({ type: "getImage/image/rejected", payload: e.toString() });
+    }
+  };
+};
+
+export const createNickName = (nickname,id) => {
+  return async (dispatch) => {
+    dispatch({ type: "nickname/stoped/pending" });
+    const res = await fetch(`http://localhost:8000/editMyProf/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ nickname }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+
+    if (res.status === 200) {
+      const response = await res.json();
+      dispatch({ type: "nickname/lucky/fulfilled", payload: response });
+
+    } else {
+      const response = await res.json();
+      dispatch({ type: "nickname/error/rejected", error: response.message });
     }
   };
 };
