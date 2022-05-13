@@ -20,8 +20,8 @@ header {
   display: flex;
   justify-content: space-between;
   background-color: #fff;
-  margin-top: 5px;
   box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 
 }
 
@@ -69,13 +69,13 @@ header {
   margin-left: 10px;
 }
 
+#dropdown-basic-button {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .coll {
     display: none;
-  }
-
-  .auth {
-    margin-left: 40px;
   }
 
   .flexBlock {
@@ -85,5 +85,13 @@ header {
   .headerBtn a {
     text-decoration: none;
     color: white;
+  }
+
+  #dropdown-basic-button {
+    display: block;
+  }
+
+  .buttons {
+    margin-left: 5%;
   }
 }
