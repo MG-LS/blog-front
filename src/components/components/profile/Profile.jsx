@@ -24,9 +24,7 @@ const Profile = () => {
     dispatch(getImage());
   }, [dispatch]);
 
-  const handleImage = () => {
-    dispatch(addImage(id, file));
-  };
+
 
   if (!user) {
     return "loading...";
