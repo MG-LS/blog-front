@@ -16,6 +16,7 @@ import Footer from "./components/components/Footer/Footer";
 
 import BlogPage from "./components/components/Blog/BlogPage";
 import EditProfile from "./components/components/profile/EditProfile";
+import WeatherApp from "./components/components/profile/Weather/WeatherApp";
 
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/edit/profile/:id" element={<EditProfile />} />
+            <Route path="/weather" element={<WeatherApp/>} />
+            
 
             <Route path='/footer' element={<Footer />} />
 

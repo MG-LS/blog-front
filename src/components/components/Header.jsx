@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import logo from "../img/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import WeatherApp from "./profile/Weather/WeatherApp";
 
 const Header = () => {
   const token = useSelector((state) => state.auth.token);
@@ -21,6 +22,7 @@ const Header = () => {
       <div className="container">
         <div className="header__inner">
           <div className="flexBlock">
+            <WeatherApp />
             <Link to={"/"}>
               <div>
                 <img className="logo" src={logo} alt="error" />

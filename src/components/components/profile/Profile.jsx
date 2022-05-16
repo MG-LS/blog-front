@@ -49,13 +49,14 @@ const Profile = () => {
       }
 
 
-     console.log(message);
+
 
   return (
 
 <div style={{backgroundColor: '#fafbff'}}>
 <Header />
     <div className="border__radius" >
+      
 
     <div className="main_div">
       <div className="photo_back">
