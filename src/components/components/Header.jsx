@@ -1,66 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./header.css";
-import { Button } from "react-bootstrap";
+import { Button, DropdownButton } from "react-bootstrap";
 import logo from "../img/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import WeatherApp from "./profile/Weather/WeatherApp";
+import Example from "./Canvas";
+import { Dropdown } from "react-bootstrap";
 
 const Header = () => {
   const token = useSelector((state) => state.auth.token);
 
-
   const unSign = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('id')
-    window.location.reload()
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    window.location.reload();
+  };
+  const [open, setOpen] = useState(true);
+  const [value, setValue] = useState("");
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
   };
 
   return (
-    <header>
-      <div className="container">
-        <div className="header__inner">
-          <div className="flexBlock">
-            <WeatherApp />
-            <Link to={"/"}>
-              <div>
-                <img className="logo" src={logo} alt="error" />
+    <>
+      <header>
+        <div className="container">
+          <div className="header__inner">
+            <div className="flexBlock">
+              <Link to={"/"}>
+                <div>
+                  <img className="logo" src={logo} alt="error" />
+                </div>
+              </Link>
+              <div className="searcher_block">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className="searcher"
+                  onChange={handleChange}
+                  value={value}
+                />
               </div>
-            </Link>
-            <div className="searcher_block">
-              <input type="text" placeholder="Search" className="searcher" />
+            </div>
+            <div className="buttons">
+              <DropdownButton
+                id="dropdown-basic-button"
+                title="Dropdown button"
+              >
+                <Dropdown.Item href="#/action-1">
+                  <Example />
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Текст</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Текст</Dropdown.Item>
+                <Dropdown.Item href="#/action-4">Текст</Dropdown.Item>
+                <Dropdown.Item href="#/action-5">Текст</Dropdown.Item>
+              </DropdownButton>
+              <div className="coll">
+                <Example />
+              </div>
+              <Button className="headerBtn coll">Написать</Button>
+              <Button className="headerBtn coll">Пусто</Button>
+              <Link to={"/profile"}>
+                <Button className="headerBtn coll">Профиль</Button>
+              </Link>
+              {token ? (
+                <Link to={"/"}>
+                  <Button onClick={unSign} className="headerBtn auth">
+                    Выйти
+                  </Button>
+                </Link>
+              ) : (
+                <Link to={"/reg"}>
+                  <Button className="headerBtn auth">Войти</Button>
+                </Link>
+              )}
             </div>
           </div>
-
-          <div className="col-md-4 my-2  buttons">
-            <Button className="headerBtn">Написать</Button>
-            <Button className="headerBtn">Пусто</Button>
-            <Button className="headerBtn"><Link to={'/blog'}>Блог</Link></Button>
-            {token ? <Button onClick={unSign} className="headerBtn"><Link to={'/'}>Выйти</Link></Button> : <Button className="headerBtn"><Link to={'/reg'}>Войти</Link></Button>}
-             
-
-          <div className="buttons">
-            <Button className="headerBtn coll">Написать</Button>
-            <Button className="headerBtn coll">Пусто</Button>
-            <Button className="headerBtn prof">Профиль</Button>
-            {token ? (
-              <Link to={"/"}>
-                <Button onClick={unSign} className="headerBtn auth">
-                  Выйти
-                </Button>
-              </Link>
-            ) : (
-              <Link to={"/reg"}>
-                <Button className="headerBtn auth">Войти</Button>
-              </Link>
-            )}
-
-          </div>
         </div>
-      </div>
-      </div>
-    </header>
+      </header>
+      {value && <div className="modalw">wind</div>}
+    </>
   );
 };
 

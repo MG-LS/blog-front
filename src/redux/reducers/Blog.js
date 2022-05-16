@@ -61,6 +61,58 @@ export const blogReducer = (state = initialState, action) => {
         load: true,
       };
     }
+    case "blog/change/fulfilled": {
+      return {
+        ...state,
+        blog: state.blog.map((item) => {
+          if (item._id === action.payload.idBlog) {
+            item.likes = [...item.likes, action.payload.idUser];
+            return item;
+          }
+          return item;
+        }),
+        load: false,
+      };
+    }
+    case "blog/change/rejected": {
+      return {
+        ...state,
+        error: action.error,
+        load: false,
+      };
+    }
+    case "blog/change/pending": {
+      return {
+        ...state,
+        load: true,
+      };
+    }
+    case "blog/change/delete/fulfilled": {
+      return {
+        ...state,
+        blog: state.blog.map((item) => {
+          if (item._id === action.payload.idBlog) {
+            item.likes = item.likes.filter((i) => i !== action.payload.idUser);
+            return item;
+          }
+          return item;
+        }),
+        load: false,
+      };
+    }
+    case "blog/change/delete/rejected": {
+      return {
+        ...state,
+        error: action.error,
+        load: false,
+      };
+    }
+    case "blog/change/delete/pending": {
+      return {
+        ...state,
+        load: true,
+      };
+    }
     default:
       return state;
   }
@@ -119,21 +171,60 @@ export const deleteBlog = (id) => {
   };
 };
 
-// export const patchBlog = (vLikes, boolean, users) => {
+// export const addLike = (id) => {
 //   return async (dispatch) => {
 //     try {
-//       dispatch({ type: "blog/change/pending" });
-//       const patch_fetch = await fetch(`http://localhost:8000/blog/${id}`, {
-//         method: "PATCH",
+//       dispatch({ type: "comments/fetch/add/pending" });
+//       const post = await fetch(`http://localhost:8000/like/${id}`, {
+//         method: "POST",
 //         headers: {
 //           "Content-Type": "application/json",
 //         },
-//         body: JSON.stringify({ boolean: !boolean, user: users }),
+//         body: JSON.stringify({ text: comt, blog: id, user: idUser }),
 //       });
-//       const data = await patch_fetch.json();
-//       dispatch({ type: "blog/change/fulfilled", payload: { users, id } });
+//       const data = await post.json();
+//       console.log(data);
+//       dispatch({ type: "comments/fetch/add/fulfilled", payload: data });
 //     } catch (e) {
-//       dispatch({ type: "blog/change/rejected", error: e.toString() });
+//       dispatch({ type: "comments/fetch/add/rejected", error: e.toString() });
 //     }
 //   };
 // };
+
+export const Like = (idBlog, idUser) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: "blog/change/pending" });
+      const patch_fetch = await fetch(`http://localhost:8000/like/${idBlog}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ likes: idUser }),
+      });
+      const data = await patch_fetch.json();
+      dispatch({ type: "blog/change/fulfilled", payload: { idBlog, idUser } });
+    } catch (e) {
+      dispatch({ type: "blog/change/rejected", error: e.toString() });
+    }
+  };
+};
+
+export const deleteLike = (idBlog, idUser) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: "blog/change/delete/pending" });
+      const patch_fetch = await fetch(`http://localhost:8000/like/delete/${idBlog}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ likes: idUser }),
+      });
+      const data = await patch_fetch.json();
+      dispatch({ type: "blog/change/delete/fulfilled", payload: { idBlog, idUser } });
+    } catch (e) {
+      dispatch({ type: "blog/change/delete/rejected", error: e.toString() });
+    }
+  };
+};
