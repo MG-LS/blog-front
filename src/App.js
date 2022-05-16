@@ -14,8 +14,9 @@ import About from "./components/pages/About.jsx/About";
 
 import Footer from "./components/components/Footer/Footer";
 
-import BlogPage from "./components/components/Blog/BlogPage";
+import BlogPage from "./components/Tape/BlogPage";
 import EditProfile from "./components/components/profile/EditProfile";
+import TapePage from "./components/Tape/TapePage";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
 
 
             <Route path="/post" element={<BlogPage />} />
+            <Route path="/post/:id" element={<TapePage />} />
 
           </Routes>
         </BrowserRouter>
