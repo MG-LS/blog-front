@@ -5,6 +5,7 @@ import { Button, DropdownButton } from "react-bootstrap";
 import logo from "../img/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import WeatherApp from "./profile/Weather/WeatherApp";
 import Example from "./Canvas";
 import { Dropdown } from "react-bootstrap";
 
@@ -16,7 +17,6 @@ const Header = () => {
     localStorage.removeItem("id");
     window.location.reload();
   };
-
   const [open, setOpen] = useState(true);
   const [value, setValue] = useState("");
 
