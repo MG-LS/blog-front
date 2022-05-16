@@ -4,9 +4,10 @@ import thunk from "redux-thunk";
 import  {imgReducer}  from "./reducers/image";
 import auth from "./fearutes/auth";
 import  {blogReducer}  from "./reducers/Blog";
+import { reviewsReducer } from "./reducers/Review";
 
 
-const combineReducer = combineReducers({ auth, imgReducer, blogReducer });
+const combineReducer = combineReducers({ auth, imgReducer, blogReducer, reviewsReducer });
 
 export const store = createStore(
   combineReducer,
