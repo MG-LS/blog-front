@@ -9,6 +9,7 @@ import WeatherApp from "./profile/Weather/WeatherApp";
 
 const Header = () => {
   const token = useSelector((state) => state.auth.token);
+  const id = useSelector((state) => state.auth.userId)
 
 
   const unSign = () => {
@@ -43,7 +44,12 @@ const Header = () => {
           <div className="buttons">
             <Button className="headerBtn coll">Написать</Button>
             <Button className="headerBtn coll">Пусто</Button>
-            <Button className="headerBtn prof">Профиль</Button>
+            
+
+            {token ?(
+            <Button className="headerBtn prof"><Link to={`/profile/${id}`}>Профиль</Link> </Button>
+
+            ) : null}
             {token ? (
               <Link to={"/"}>
                 <Button onClick={unSign} className="headerBtn auth">
