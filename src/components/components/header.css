@@ -73,6 +73,18 @@ header {
   display: none;
 }
 
+
+.modalw {
+  width: 20%;
+  min-height: 10%;
+  position: absolute;
+  top: 8%;
+  left: 27.8%;
+  background-color: #fff;
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
 @media screen and (max-width: 768px) {
   .coll {
     display: none;
