@@ -9,24 +9,13 @@ const Main = () => {
   const User = localStorage.getItem("id");
   return (
     <>
-      {!User ? (
-        <div>
-          <Header />
-          <div style={{ display: "flex" }}>
-            <Sidebar />
-            <Starting />
-          </div>
-        </div>
-      ) : (
-        <div>
-          <Header />
+      <div>
+        <Header />
+        <div style={{ display: "flex" }}>
           <Sidebar />
-          <div className="tape_user">
-          
-            <BlogPage />
-          </div>
+          <Starting />
         </div>
-      )}
+      </div>
     </>
   );
 };
