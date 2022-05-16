@@ -14,9 +14,9 @@ import About from "./components/pages/About.jsx/About";
 
 import Footer from "./components/components/Footer/Footer";
 
-import BlogPage from "./components/Tape/BlogPage";
 import EditProfile from "./components/components/profile/EditProfile";
 import TapePage from "./components/Tape/TapePage";
+import MainTapeBlog from "./components/Tape/MainTapeBlog";
 
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
             <Route path='/footer' element={<Footer />} />
 
 
-            <Route path="/post" element={<BlogPage />} />
+            <Route path="/post" element={<MainTapeBlog />} />
             <Route path="/post/:id" element={<TapePage />} />
 
           </Routes>

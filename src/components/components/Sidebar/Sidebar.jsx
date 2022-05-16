@@ -13,7 +13,7 @@ const Sidebar = () => {
         <ul className="sidebar-list">
           <li className="sidebar-item">
             <span class="material-symbols-outlined">feed</span>
-            <Link className="sidebar-link" to={"/myfeed"}>Лента</Link>
+            <Link className="sidebar-link" to={"/post"}>Лента</Link>
           </li>
           <li className="sidebar-item">
             <span class="material-symbols-outlined">explore</span>
