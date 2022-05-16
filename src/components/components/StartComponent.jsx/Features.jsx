@@ -14,14 +14,14 @@ const Features = () => {
         <div className="feature">
           <span class="material-symbols-outlined">login</span>
           <div>
-            <h4>Авторизация</h4>
+            <h4 className="featuresH4">Авторизация</h4>
             <p>Возможность авторизоваться и вести собственный блог</p>
           </div>
         </div>
         <div className="feature">
           <span class="material-symbols-outlined">open_in_full</span>
           <div>
-            <h4>Адаптив</h4>
+            <h4 className="featuresH4">Адаптив</h4>
             <p>
               Дизайн, адаптированный под экраны любого (более-менее) устройства
             </p>
@@ -30,7 +30,7 @@ const Features = () => {
         <div className="feature">
           <span class="material-symbols-outlined">home_repair_service</span>
           <div>
-            <h4>MERN</h4>
+            <h4 className="featuresH4">MERN</h4>
             <p>
               Использованы самые актуальные на данный момент инструменты
               веб-разработчика

@@ -14,15 +14,15 @@ function OffCanvasExample({ name, ...props }) {
   return (
     <>
       <Button variant="primary" onClick={handleShow} className="me-2 example">
-        Жаг1 бу
+        Жаг1
       </Button>
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <OffcanvasHeader closeButton>
           <OffcanvasTitle>Offcanvas</OffcanvasTitle>
         </OffcanvasHeader>
         <OffcanvasBody>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          <div>dadas</div>
+          <div>sda</div>
         </OffcanvasBody>
       </Offcanvas>
     </>
