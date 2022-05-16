@@ -4,6 +4,8 @@ import { deleteLike, Like, loadBlog } from "../../redux/reducers/Blog";
 import { getImage } from "../../redux/reducers/image";
 import imgComm from "../img/bubble-chat.png";
 import imgLike from "../img/heart.png";
+import imgMark from "../img/bookmark.png";
+import imgMarkBlack from "../img/bookmarkBlack.png";
 import imgLikeRed from "../img/heartRed.png";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,6 +17,14 @@ const BlogPage = () => {
   const idLocal = localStorage.getItem("id");
   const idParams = useParams().id;
   const user = useSelector((state) => state.imgReducer);
+
+  const userImg = useSelector((state) =>
+    state.imgReducer.users.find((user) => user.img)
+  );
+
+  const userBlog = useSelector((state) =>
+    state.imgReducer.users.find((user) => user)
+  );
 
   const dispatch = useDispatch();
 
@@ -35,60 +45,69 @@ const BlogPage = () => {
   useEffect(() => {
     dispatch(getImage());
   }, [dispatch]);
+
+  if (!userImg) {
+    return "loading...";
+  }
   return (
-    <div>
+    <div className="tape_main">
       {blog.map((item, i) => {
         const likeFind =
           item.likes.length && item.likes.find((i) => i === idLocal);
 
         return (
           <>
-            <div className="tape_blog">
-              <div className="tape_blog_div">
-                <div>
+            <div className="tape_map_main">
+              <div className="tape_blog">
+                <div className="tape_header">
                   <div>
                     <img
-                      className="tape_profile_img"
-                      src="https://i.ytimg.com/vi/g9Q84we2dFA/maxresdefault.jpg"
+                      className=""
+                      src={`http://localhost:8000/${userImg.img}`}
                     />
-                    <p>{user.nickname}</p>
                   </div>
+                  <p>{userImg.nickname}</p>
                   <div></div>
                 </div>
-                <Link to={`/post/${item._id}`} className="tape_st">
-                  <div key={i}>
+                <div className="tape_info">
+                  <Link to={`/post/${item._id}`} className="link">
+                    <div className="tape_info_main">
+                      <div className="tape_text_info">
+                        <div>
+                          <p className="tape_title">{item.title}</p>
+                        </div>
+                        <div className="tape_text">
+                          <p>{item.text}</p>{" "}
+                        </div>
+                      </div>
+                      <div key={i}>
+                        <img
+                          className="tape_img"
+                          src={`http://localhost:8000/${item.img}`}
+                          alt="photo"
+                        />
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                <div className="tape_footer">
+                  <img src={imgMark} alt="" />
+                  {likeFind ? (
                     <img
-                      className="tape_img"
-                      src={`http://localhost:8000/${item.img}`}
-                      alt="photo"
+                      className="tape_like"
+                      src={likeFind ? imgLikeRed : imgLike}
+                      alt=""
+                      onClick={() => deleteLikeHandle(item._id)}
                     />
-                  </div>
-                  <div className="tape_text">
-                    <div>
-                      <p className="tape_title">{item.title}</p>
-                    </div>
-                    <div>
-                      <p>{item.text}</p>{" "}
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="tape_icon">
-                {likeFind ? (
-                  <img
-                    className="tape_img_comm"
-                    src={likeFind ? imgLikeRed : imgLike}
-                    alt=""
-                    onClick={() => deleteLikeHandle(item._id)}
-                  />
-                ) : (
-                  <img
-                    className="tape_img_comm"
-                    src={likeFind ? imgLikeRed : imgLike}
-                    alt=""
-                    onClick={() => addLikeHandle(item._id)}
-                  />
-                )}
+                  ) : (
+                    <img
+                      className="tape_like"
+                      src={likeFind ? imgLikeRed : imgLike}
+                      alt=""
+                      onClick={() => addLikeHandle(item._id)}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </>
