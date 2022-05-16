@@ -24,9 +24,7 @@ const Profile = () => {
     dispatch(getImage());
   }, [dispatch]);
 
-  const handleImage = () => {
-    dispatch(addImage(id, file));
-  };
+
 
   if (!user) {
     return "loading...";
@@ -49,13 +47,14 @@ const Profile = () => {
       }
 
 
-     console.log(message);
+
 
   return (
 
 <div style={{backgroundColor: '#fafbff'}}>
 <Header />
     <div className="border__radius" >
+      
 
     <div className="main_div">
       <div className="photo_back">

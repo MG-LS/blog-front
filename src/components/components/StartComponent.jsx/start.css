@@ -29,6 +29,21 @@ p {
 
 .startImg {
   max-width: 100%;
+  animation-name: rotation;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .largeBtn {
@@ -42,33 +57,6 @@ p {
   border-radius: 5px;
 }
 
-@media screen and (max-width: 768px) {
-  .startBlokc {
-    flex-wrap: wrap;
-  }
-
-  h1,
-  p {
-    text-align: center;
-  }
-
-  .largeBtnBlock {
-    width: 190px;
-    margin: auto;
-  }
-
-  .largeBtn {
-    margin: auto;
-  }
-
-  .startImg {
-    width: 80%;
-    margin: auto;
-    margin-top: 50px;
-    margin-left: 50px;
-  }
-}
-
 /* Features block styles */
 
 .features {
@@ -80,6 +68,7 @@ p {
     rgb(252 70 107 / 15%) 100%
   );
   border-radius: 20px;
+  background: radial-gradient(circle, rgb(63 94 251 / 20%) 0%, rgb(252 70 107 / 20%) 100%);
   padding: 100px;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   transition: 0.3s;
@@ -364,4 +353,49 @@ p {
 }
 .rate-area > label:active {
   position: relative;
+}
+.questions {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .startBlokc {
+    flex-wrap: wrap;
+  }
+
+  h1,
+  p {
+    text-align: start;
+  }
+
+  .largeBtnBlock {
+    width: 190px;
+    margin: auto;
+  }
+
+  .largeBtn {
+    margin: auto;
+  }
+
+  .startImg {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+
+  .features {
+    width: 90%;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
+  .featuresH4 {
+    margin-left: 4rem;
+    text-align: center;
+    margin-right: 5rem;
+  }
+
 }
