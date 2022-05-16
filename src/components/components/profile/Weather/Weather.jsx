@@ -4,7 +4,7 @@ import './style.css'
 const Weather = ({temp,city,country,sunrise,sunset,error}) => {
   
     const tempus = String(temp).substring(0,2)      
-    console.log(tempus);  
+  
     return (
         <div>
             {city &&

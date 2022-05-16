@@ -12,12 +12,12 @@ import { useDispatch } from 'react-redux';
 const API_KEY = "4c9fa88f297b0a9278cc11b52b10deca"
 
 const WeatherApp = () => {
-    const [city, setCity] = useState("")
+
 
     const location = useGeoLocation()
     const lat = JSON.stringify(location.coordinates.lat)
     const lon = JSON.stringify(location.coordinates.lng)
-    console.log(location);
+
    const  [state, setState] = useState({
         temp: undefined,
         city: undefined,
@@ -26,7 +26,7 @@ const WeatherApp = () => {
         sunset: undefined,
         error: undefined
     })
-    const dispatch = useDispatch()
+
 
     // const api_url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
    
@@ -39,7 +39,6 @@ console.log(location);
 
      const api_url = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
      const data = await api_url.json()
-     console.log(data);
      var sunset = data.sys.sunset
      var sunrise = data.sys.sunrise
      var date = new Date()
