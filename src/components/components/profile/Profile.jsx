@@ -56,7 +56,6 @@ const Profile = () => {
       <div className="border__radius" >
         <div className="main_div">
           <div className="photo_back">
-
             <label htmlFor="upload_photo">
               <input id="upload_photo" className="file" onChange={(e) => setFile(e.target.files[0])} type="file" />
               <div>
@@ -67,7 +66,6 @@ const Profile = () => {
             <div className="button__edit__profile">
 
               <button className="button" > <NavLink className='navLink' to={`/edit/profile/${id}`}>Редактировать профиль </NavLink>     </button>
-
 
             </div>
 
@@ -89,7 +87,26 @@ const Profile = () => {
           </div>
 
         </div>
+            </div>
 
+            <div >
+              <h1 className="nick__name">
+                {message} {user.nickname}
+              </h1>
+              <p className="id_p">
+                {user._id}
+
+              </p>
+              <p>
+
+              </p>
+              <p className="joined__to">
+                {`Вы зарегестрированы с ${user.updatedAt.substring(0, 10)}`}
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
 
 

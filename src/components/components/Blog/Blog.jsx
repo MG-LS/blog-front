@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addBlog } from "../../../redux/reducers/Blog";
 import BlogHeader from "./BlogHeader";
 
@@ -8,7 +9,7 @@ const Blog = () => {
 
   const dispatch = useDispatch();
   const idUser = localStorage.getItem("id");
-
+  const navigate = useNavigate()
 
   const textBlog = useSelector((state) => state.blogReducer);
 
@@ -18,8 +19,7 @@ const Blog = () => {
   const [preview, setPreview] = useState('')
 
   const addBlogText = () => {
-    console.log(photo)
-    dispatch(addBlog(photo, idUser, blogTitle, blogText));
+    dispatch(addBlog(photo, idUser, blogTitle, blogText, navigate));
   };
 
   useEffect(() => {

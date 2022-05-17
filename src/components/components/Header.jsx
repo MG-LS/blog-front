@@ -70,6 +70,11 @@ const Header = () => {
               <Button className="headerBtn coll">Написать</Button>
               <Button className="headerBtn coll">Пусто</Button>
 
+              {token ?(
+            <Button className="headerBtn prof"><Link to={`/profile/${id}`}>Профиль</Link> </Button>
+
+            ) : null}
+
               {id ? (<Link to={`/profile/${id}`}>
                 <Button className="headerBtn coll">Профиль</Button>
               </Link>) : null}
