@@ -12,6 +12,7 @@ import { Dropdown } from "react-bootstrap";
 const Header = () => {
   const id = useSelector((state) => state.auth.userId)
   const token = useSelector((state) => state.auth.token);
+  const id = useSelector((state) => state.auth.userId)
 
   const unSign = () => {
     localStorage.removeItem("token");
@@ -25,12 +26,16 @@ const Header = () => {
     setValue(e.target.value);
   };
 
+
+    
+
   return (
     <>
       <header>
         <div className="container">
           <div className="header__inner">
             <div className="flexBlock">
+
               <Link to={"/"}>
                 <div>
                   <img className="logo" src={logo} alt="error" />
@@ -64,6 +69,10 @@ const Header = () => {
               </div>
               <Button className="headerBtn coll">Написать</Button>
               <Button className="headerBtn coll">Пусто</Button>
+              {token ?(
+            <Button className="headerBtn prof"><Link to={`/profile/${id}`}>Профиль</Link> </Button>
+
+            ) : null}
               {id ? (<Link to={`/profile/${id}`}>
                 <Button className="headerBtn coll">Профиль</Button>
               </Link>) : null}
