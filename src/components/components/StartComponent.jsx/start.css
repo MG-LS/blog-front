@@ -188,6 +188,12 @@ p {
 .warning-sign {
   color: rgb(176, 10, 10);
   text-align: center;
+  animation: scl .5s forwards;
+}
+
+@keyframes scl {
+  0% {transform: scale(.5);}
+  100% {transform: scale(1);}
 }
 
 .added-window {

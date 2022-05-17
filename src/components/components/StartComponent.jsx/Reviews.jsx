@@ -62,7 +62,7 @@ const Reviews = () => {
       <p className="reviews-title">ОТЗЫВЫ ОТ НАШИХ ПОЛЬЗОВАТЕЛЕЙ</p>
       <div style={{ textAlign: "center" }} className="add-box">
         <span
-          class="add-review material-symbols-outlined"
+          className="add-review material-symbols-outlined"
           onClick={toggleWindow}
         >
           {btnName ? "add_box" : "disabled_by_default"}
