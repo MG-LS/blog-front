@@ -10,6 +10,7 @@ import Example from "./Canvas";
 import { Dropdown } from "react-bootstrap";
 
 const Header = () => {
+  const id = useSelector((state) => state.auth.userId)
   const token = useSelector((state) => state.auth.token);
 
   const unSign = () => {
@@ -63,9 +64,9 @@ const Header = () => {
               </div>
               <Button className="headerBtn coll">Написать</Button>
               <Button className="headerBtn coll">Пусто</Button>
-              <Link to={"/profile"}>
+              {id ? (<Link to={`/profile/${id}`}>
                 <Button className="headerBtn coll">Профиль</Button>
-              </Link>
+              </Link>) : null}
               {token ? (
                 <Link to={"/"}>
                   <Button onClick={unSign} className="headerBtn auth">
