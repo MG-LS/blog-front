@@ -25,7 +25,7 @@ const Sidebar = () => {
           </li>
           <li className="sidebar-item">
           <RiDraftFill className="react__icon-blogs"/>
-            <Link className="sidebar-link" to={"/blogs"}>Блоги</Link>
+            <Link className="sidebar-link" to={"/blog"}>Блоги</Link>
           </li>
           <li className="sidebar-item">
             <span class="material-symbols-outlined">info</span>

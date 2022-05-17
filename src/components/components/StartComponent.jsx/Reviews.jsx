@@ -4,25 +4,30 @@ import { addReview, deleteReview, loadReviews } from "../../../redux/reducers/Re
 import avatar from "../../img/avatar.jpg";
 
 const Reviews = () => {
+  const dispatch = useDispatch();
+
   const reviews = useSelector((state) => state.reviewsReducer.reviews);
   const load = useSelector((state) => state.reviewsReducer.load);
   const [reviewWindow, setReviewWindow] = useState(false);
   const [reviewText, setReviewText] = useState("");
   const [reviewRating, setReviewRating] = useState(0);
+  const [upd, setUpd] = useState(true)
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadReviews());
-  }, [dispatch]);
 
   const addNewReview = () => {
     if (reviewRating && reviewText) {
-      dispatch(addReview(reviewText, reviewRating));
+      dispatch(addReview("627a12da597f1fa23b3b4f8a", reviewText, reviewRating));
       setReviewText("");
       setReviewRating(0);
+      setUpd(!upd)
     }
   };
+
+  
+
+  useEffect(() => {
+    dispatch(loadReviews());
+  }, [dispatch, upd]);
 
   const delReview = (id) => {
     dispatch(deleteReview(id))
