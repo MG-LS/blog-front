@@ -2,10 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteLike, Like, loadBlog } from "../../redux/reducers/Blog";
 import { getImage } from "../../redux/reducers/image";
-import imgComm from "../img/bubble-chat.png";
 import imgLike from "../img/heart.png";
 import imgMark from "../img/bookmark.png";
-import imgMarkBlack from "../img/bookmarkBlack.png";
 import imgLikeRed from "../img/heartRed.png";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,13 +14,11 @@ const BlogPage = () => {
   const blog = useSelector((state) => state.blogReducer.blog);
   const idLocal = localStorage.getItem("id");
   const idParams = useParams().id;
-  const user = useSelector((state) => state.imgReducer);
+  const user = useSelector((state) => state.imgReducer.users);
+
+  const userMap = user.map((item) => item);
 
   const userImg = useSelector((state) =>
-    state.imgReducer.users.find((user) => user.img)
-  );
-
-  const userBlog = useSelector((state) =>
     state.imgReducer.users.find((user) => user)
   );
 
@@ -30,12 +26,10 @@ const BlogPage = () => {
 
   const addLikeHandle = (id) => {
     dispatch(Like(id, idLocal));
-    console.log(id);
   };
 
   const deleteLikeHandle = (id) => {
     dispatch(deleteLike(id, idLocal));
-    console.log(id);
   };
 
   useEffect(() => {
@@ -61,10 +55,12 @@ const BlogPage = () => {
               <div className="tape_blog">
                 <div className="tape_header">
                   <div>
-                    <img
-                      className=""
-                      src={`http://localhost:8000/${userImg.img}`}
-                    />
+                    {}
+                      <img
+                        className=""
+                        src={`http://localhost:8000/${userMap.img}`}
+                      />
+                   
                   </div>
                   <p>{userImg.nickname}</p>
                   <div></div>
