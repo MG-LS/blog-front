@@ -62,12 +62,16 @@ p {
 .features {
   margin-top: 100px;
   margin-bottom: 100px;
+  background: radial-gradient(
+    circle,
+    rgb(63 94 251 / 15%) 0%,
+    rgb(252 70 107 / 15%) 100%
+  );
+  border-radius: 20px;
   background: radial-gradient(circle, rgb(63 94 251 / 20%) 0%, rgb(252 70 107 / 20%) 100%);
-  ;
-  border-radius: 30px;
   padding: 100px;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .features:hover {
@@ -82,8 +86,12 @@ p {
 }
 
 .features-title span {
-  background-image: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 100%, rgba(252, 176, 69, 1) 100%);
-  ;
+  background-image: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 100%,
+    rgba(252, 176, 69, 1) 100%
+  );
   color: transparent;
 }
 
@@ -96,7 +104,7 @@ p {
   font-size: 25px;
   font-weight: 500;
   display: flex;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
 }
 
@@ -121,6 +129,231 @@ p {
   margin: 0;
 }
 
+/* Reviews block styles */
+
+.reviews {
+  padding: 50px;
+  border-radius: 20px;
+  margin-bottom: 100px;
+  transition: 0.2s;
+  background-image: url("../../img/reviews-background.png");
+}
+
+.reviews-title {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 650;
+  color: #000000b3;
+}
+
+.add-box .material-symbols-outlined {
+  font-size: 50px;
+  margin: 30px auto;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-box .material-symbols-outlined:hover {
+  color: #1f66d0;
+}
+
+.added-window {
+  width: 70%;
+  border-radius: 10px;
+  margin: auto;
+  animation: ani .5s forwards;
+  margin-bottom: 50px;
+  padding: 20px 50px;
+  background-color: #ffffff80;
+}
+
+@keyframes ani {
+  0% {transform: scale(0);}
+  100% {transform: scale(1);}
+}
+
+.rating-area p {
+  margin-left: 5px;
+  font-size: 25px;
+}
+
+.review-adding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+}
+
+.review-adding textarea {
+  margin-right: 30px;
+  outline: none;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.add-review-btn {
+  margin-bottom: 100px;
+  width: 176px;
+  height: 40px;
+  font-size: 20px;
+  border: none;
+  background: #0088ff;
+  color: white;
+  border-radius: 5px;
+  transition: .3s;
+}
+
+.add-review-btn:hover {
+  transform: scale(1.1);
+}
+
+.add-btn-block {
+  text-align: center;
+}
+
+.single-review {
+  width: 1000px;
+  margin: auto;
+  margin-bottom: 50px;
+  font-size: 25px;
+  background-color: rgb(247, 248, 255);
+  border-radius: 10px;
+  padding: 30px;
+  transition: 0.2s;
+  box-shadow: 1px 1px 3px grey;
+  position: relative;
+}
+
+.single-review .material-symbols-outlined {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 28px;
+  opacity: .2;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.single-review .material-symbols-outlined:hover {
+  color: rgb(226, 53, 53);
+  opacity: 1;
+}
+
+.single-review:hover {
+  box-shadow: 2px 2px 10px grey;
+  transform: scale(1.02);
+}
+
+.review-info {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-avatar {
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.review-name {
+  font-weight: 500;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap");
+
+.review-text {
+  margin-left: 40px;
+  font-family: "Roboto Slab", serif;
+}
+
+/* Rating stars */
+
+.rating-result span {
+  padding: 0;
+  font-size: 32px;
+  margin: 0 3px;
+  line-height: 1;
+}
+
+.review-stars {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.five-stars,
+.five-stars ~ span {
+  color: gold;
+  text-shadow: 1px 1px #c60;
+}
+
+.four-stars,
+.four-stars ~ span {
+  color: gold;
+  text-shadow: 1px 1px #c60;
+}
+
+.three-stars,
+.three-stars ~ span {
+  color: gold;
+  text-shadow: 1px 1px #c60;
+}
+
+.two-stars,
+.two-stars ~ span {
+  color: gold;
+  text-shadow: 1px 1px #c60;
+}
+
+.one-star,
+.one-star ~ span {
+  color: gold;
+  text-shadow: 1px 1px #c60;
+}
+
+.rating-area {
+  overflow: hidden;
+}
+.rating-area:not(:checked) > input {
+  display: none;
+}
+.rating-area:not(:checked) > label {
+  float: right;
+  width: 50px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 50px;
+  line-height: 40px;
+  color: lightgrey;
+  text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+  content: "★";
+}
+.rating-area > input:checked ~ label {
+  color: gold;
+  text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+  color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+  color: gold;
+  text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+  position: relative;
+}
 .questions {
   margin-top: 10%;
   margin-bottom: 10%;

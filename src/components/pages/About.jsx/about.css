@@ -7,7 +7,7 @@
   margin-top: 20px;
 }
 
-span {
+.aboutTitle span {
   background-image: linear-gradient(to right, #432ff5, #526bf5, rgb(7, 167, 241));
   color: transparent;
   -webkit-background-clip: text;
@@ -29,7 +29,7 @@ span {
   width: 50%;
 }
 
-h3 {
+.aboutUs h3 {
   text-align: center;
   width: 100px;
   margin: auto;
