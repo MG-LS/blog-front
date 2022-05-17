@@ -7,15 +7,14 @@ import EditProfile from "./EditProfile";
 import './style.css'
 
 const Profile = () => {
-  const navigate = useNavigate()
   const dispatch = useDispatch();
   const { id } = useParams();
   const [file, setFile] = useState();
-  const editProfileState = useState(false)
+
   const user = useSelector((state) =>
     state.imgReducer.users.find((user) => user._id === id)
   );
-  const postUser = useSelector((state) => state.blogReducer)
+  const postUser = useSelector((state) => state.blogReducer.blog)
   console.log(postUser);
 
 
@@ -50,8 +49,8 @@ const Profile = () => {
 
 
   return (
-
-    <div style={{ backgroundColor: '#fafbff' }}>
+  
+    <div className="background__image">
       <Header />
       <div className="prosto__probel"></div>
       <div className="border__radius" >

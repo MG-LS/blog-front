@@ -99,7 +99,7 @@ const Blog = () => {
               Введите текст:
             </label>
             <div className="col-sm-10">
-              <input value={blogText} className="form-control" rows="5" id="comment" onChange={(e) => setBlogText(e.target.value)}></input>
+              <textarea type="submit" value={blogText} className="form-control" rows="5" id="comment" onChange={(e) => setBlogText(e.target.value)}></textarea>
             </div>
           </div>
           <div className="form-group">

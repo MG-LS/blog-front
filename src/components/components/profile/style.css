@@ -2,6 +2,11 @@
     position: relative;
   
 }
+.background__image{
+/* background-color: #fafbff; */
+  background-image: url('https://cdn.hashnode.com/res/hashnode/image/upload/v1611643563813/fTNBV9XNI.gif');
+  padding-bottom: 100px;
+}
 .prosto__probel{
     padding-top: 50px;
     padding-bottom: 50px;
@@ -30,7 +35,7 @@
     border-radius: 7px;
 
     z-index: 1;
-    background-image: url('https://forums.minecraftforge.net/uploads/monthly_2021_10/ash-edmonds-0aWZdK8nK2I-unsplash.jpg.23e3ec169807232af0ab121755d37ac8.jpg');
+    background-image: url('https://wallpaperaccess.com/full/1555172.jpg');
     background-size: cover;
     height: 300px;
 
@@ -69,8 +74,15 @@
 .button{
     border-radius: 5px;
     border: 1px solid #374151;
+    padding: 10px;
+    font-size: 13px;
     height: 40px;
+    background-color: #fff;
     color: #5b626f;
+    font-weight: 100;
+}
+.button:hover{
+    background-color: #e9b703;
 }
 .button__edit{
     margin-top: 20px;

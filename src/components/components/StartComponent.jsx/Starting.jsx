@@ -3,6 +3,7 @@ import icon from "../../img/mainphoto.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./start.css";
 import Features from "./Features";
+import Reviews from "./Reviews";
 import Footer from "../Footer/Footer";
 import { Accordion, Card, CardImg, Col, Row } from "react-bootstrap";
 
@@ -37,6 +38,7 @@ const Starting = () => {
         </div>
       </div>
       <Features />
+      <Reviews />
       <div className="container">
         <Row xs={1} md={2} className="g-4">
           {Array.from({ length: 4 }).map((_, idx) => (
