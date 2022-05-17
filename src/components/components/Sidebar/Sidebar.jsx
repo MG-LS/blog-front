@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.css"
-
+import {RiDraftFill} from 'react-icons/ri'
 const Sidebar = () => {
   return (
     <>
@@ -22,6 +22,10 @@ const Sidebar = () => {
           <li className="sidebar-item">
             <span class="material-symbols-outlined">collections_bookmark</span>
             <Link className="sidebar-link" to={"/bookmarks"}>Закладки</Link>
+          </li>
+          <li className="sidebar-item">
+          <RiDraftFill className="react__icon-blogs"/>
+            <Link className="sidebar-link" to={"/blogs"}>Блоги</Link>
           </li>
           <li className="sidebar-item">
             <span class="material-symbols-outlined">info</span>

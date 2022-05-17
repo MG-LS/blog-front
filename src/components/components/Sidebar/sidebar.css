@@ -5,7 +5,10 @@
   padding: 50px 20px 50px 0;
   border-right: 2px solid rgba(220, 220, 220, 0.53);
 }
-
+.react__icon-blogs{
+  transition: 0.3s;
+  font-size: 23px;
+}
 .sidebar-list {
   list-style-type: none;
 }
@@ -66,7 +69,8 @@
   }
 
   .sidebar {
-    width: 500px;
+    width: 614px;
+
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
@@ -90,7 +94,8 @@
   }
 
   .sidebar {
-    width: 500px;
+    width: 614px;
+
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
