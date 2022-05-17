@@ -1,33 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getImage } from "../../redux/reducers/image";
+import { useParams } from "react-router-dom";
 
 const TapeHeader = () => {
-  
-  const dispatch = useDispatch();
-  const { id } = useParams();
-  const [file, setFile] = useState();
-  const editProfileState = useState(false)
 
-  const user = useSelector((state) =>
+  const dispatch = useDispatch();
+
+  const idLocal = localStorage.getItem("id");
+  const { id } = useParams();
+
+
+  const userImg = useSelector((state) =>
     state.imgReducer.users.find((user) => user.img)
   );
-  const postUser = useSelector((state) => state.blogReducer)
-  console.log(postUser);
 
+
+
+  useEffect(() => {
+    dispatch(getImage());
+  }, [dispatch]);
+
+
+  if (!userImg) {
+    return "loading...";
+  }
 
   return (
     <>
-      <div>
-        <div>
-          <div>
-            <img src="" alt="" /> Фото
-            <p>Ник</p>
+      <div className="tape_header_main">
+        <div className="tape_header_blog">
+          <div className="tape_profile_post">
+            <img className="" src={`http://localhost:8000/${userImg.img}`} />
+            <p>{userImg.nickname}</p>
           </div>
-          <div>
-          <button type="button" class="btn btn-outline-primary">Подписаться</button>
-          <div><img src="" alt="" />Фото Аккаунта</div>
+          <div className="tape_profile_user">
+            <button type="button" class="btn btn-outline-primary">
+              Подписаться
+            </button>
+            <div>
+            <img className="" src={`http://localhost:8000/${userImg.img}`} />
+            </div>
           </div>
         </div>
       </div>
