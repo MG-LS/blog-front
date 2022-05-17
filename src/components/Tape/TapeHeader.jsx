@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getImage } from "../../redux/reducers/image";
 import { useParams } from "react-router-dom";
+import { addSub } from "../../redux/fearutes/user";
 
 const TapeHeader = () => {
 
@@ -16,7 +17,15 @@ const TapeHeader = () => {
     state.imgReducer.users.find((user) => user.img)
   );
 
+const userBlog = useSelector((state) =>
+    state.blogReducer.blog.find((item) => item)
+  );
 
+  console.log(userBlog.user);
+
+  const addSubscr = (idLocal,id) => {
+    dispatch(addSub(idLocal,id))
+  }
 
   useEffect(() => {
     dispatch(getImage());
@@ -37,7 +46,7 @@ const TapeHeader = () => {
           </div>
           <div className="tape_profile_user">
             <button type="button" 
-            // onClick={() => addSub(id)}
+            onClick={() => addSubscr(idLocal ,userBlog)}
             class="btn btn-outline-primary">
               Подписаться
             </button>

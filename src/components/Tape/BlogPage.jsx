@@ -25,17 +25,16 @@ const BlogPage = () => {
   const userBlog = useSelector((state) =>
     state.imgReducer.users.find((user) => user)
   );
-
   const dispatch = useDispatch();
 
   const addLikeHandle = (id) => {
     dispatch(Like(id, idLocal));
-    console.log(id);
+
   };
 
   const deleteLikeHandle = (id) => {
     dispatch(deleteLike(id, idLocal));
-    console.log(id);
+
   };
 
   useEffect(() => {

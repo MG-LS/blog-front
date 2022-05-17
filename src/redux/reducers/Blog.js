@@ -230,12 +230,3 @@ export const deleteLike = (idBlog, idUser) => {
   };
 };
 
-export const addSub = (id) => {
-  return async (dispatch) => {
-    try {
-      
-    } catch (error) {
-      
-    }
-  }
-}
