@@ -1,37 +1,53 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addReview, deleteReview, loadReviews } from "../../../redux/reducers/Review";
+import {
+  addReview,
+  deleteReview,
+  loadReviews,
+} from "../../../redux/reducers/Review";
 import avatar from "../../img/avatar.jpg";
 
 const Reviews = () => {
   const dispatch = useDispatch();
 
+  const userId = useSelector((state) => state.auth.userId);
+  const token = useSelector((state) => state.auth.token);
   const reviews = useSelector((state) => state.reviewsReducer.reviews);
   const load = useSelector((state) => state.reviewsReducer.load);
   const [reviewWindow, setReviewWindow] = useState(false);
   const [reviewText, setReviewText] = useState("");
   const [reviewRating, setReviewRating] = useState(0);
-  const [upd, setUpd] = useState(true)
-
+  const [upd, setUpd] = useState(true);
+  const [warningWindow, setWarningWindow] = useState(false)
+  const [btnName, setBtnName] = useState(true)
 
   const addNewReview = () => {
     if (reviewRating && reviewText) {
-      dispatch(addReview("627a12da597f1fa23b3b4f8a", reviewText, reviewRating));
+      dispatch(addReview(userId, reviewText, reviewRating));
       setReviewText("");
       setReviewRating(0);
-      setUpd(!upd)
+      setReviewWindow(false)
+      setUpd(!upd);
     }
   };
 
-  
+  const toggleWindow = () => {
+    if (token) {
+      setReviewWindow(!reviewWindow);
+      setBtnName(!btnName)
+    } else if (!token) {
+      setWarningWindow(!warningWindow)
+      setBtnName(!btnName)
+    }
+  };
 
   useEffect(() => {
     dispatch(loadReviews());
   }, [dispatch, upd]);
 
   const delReview = (id) => {
-    dispatch(deleteReview(id))
-  }
+    dispatch(deleteReview(id));
+  };
 
   if (load) {
     return <div>loading...</div>;
@@ -46,12 +62,15 @@ const Reviews = () => {
       <p className="reviews-title">ОТЗЫВЫ ОТ НАШИХ ПОЛЬЗОВАТЕЛЕЙ</p>
       <div style={{ textAlign: "center" }} className="add-box">
         <span
-          class="add-review material-symbols-outlined"
-          onClick={() => setReviewWindow(!reviewWindow)}
+          className="add-review material-symbols-outlined"
+          onClick={toggleWindow}
         >
-          add_box
+          {btnName ? "add_box" : "disabled_by_default"}
         </span>
       </div>
+      {warningWindow ? (
+        <p className="warning-sign">ДЛЯ ДОБАВЛЕНИЯ НЕОБХОДИМО АВТОРИЗОВАТЬСЯ</p>
+      ) : null}
       {reviewWindow ? (
         <div className="added-window">
           <div className="review-adding">
@@ -108,17 +127,22 @@ const Reviews = () => {
             </div>
           </div>
           <div className="add-btn-block">
-            <button className="add-review-btn" onClick={() => addNewReview()}>
+            <button className="add-review-btn" onClick={addNewReview}>
               Добавить отзыв
             </button>
           </div>
         </div>
       ) : null}
-      <div>
+      <div className="review-list">
         {reviews.map((item) => {
           return (
             <div key={item._id} className="single-review">
-              <span class="material-symbols-outlined" onClick={() => delReview(item._id)}>cancel</span>
+              <span
+                class="material-symbols-outlined"
+                onClick={() => delReview(item._id)}
+              >
+                cancel
+              </span>
               <div className="review-info">
                 <div>
                   <img src={avatar} alt="" className="review-avatar" />
