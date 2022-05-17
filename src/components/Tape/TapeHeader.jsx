@@ -36,7 +36,9 @@ const TapeHeader = () => {
             <p>{userImg.nickname}</p>
           </div>
           <div className="tape_profile_user">
-            <button type="button" class="btn btn-outline-primary">
+            <button type="button" 
+            // onClick={() => addSub(id)}
+            class="btn btn-outline-primary">
               Подписаться
             </button>
             <div>
