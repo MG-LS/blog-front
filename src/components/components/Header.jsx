@@ -5,10 +5,12 @@ import { Button, DropdownButton } from "react-bootstrap";
 import logo from "../img/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import WeatherApp from "./profile/Weather/WeatherApp";
 import Example from "./Canvas";
 import { Dropdown } from "react-bootstrap";
 
 const Header = () => {
+  const id = useSelector((state) => state.auth.userId)
   const token = useSelector((state) => state.auth.token);
 
   const unSign = () => {
@@ -16,7 +18,6 @@ const Header = () => {
     localStorage.removeItem("id");
     window.location.reload();
   };
-
   const [open, setOpen] = useState(true);
   const [value, setValue] = useState("");
 
@@ -63,9 +64,9 @@ const Header = () => {
               </div>
               <Button className="headerBtn coll">Написать</Button>
               <Button className="headerBtn coll">Пусто</Button>
-              <Link to={"/profile"}>
+              {id ? (<Link to={`/profile/${id}`}>
                 <Button className="headerBtn coll">Профиль</Button>
-              </Link>
+              </Link>) : null}
               {token ? (
                 <Link to={"/"}>
                   <Button onClick={unSign} className="headerBtn auth">
