@@ -23,6 +23,8 @@ const Reviews = () => {
     }
   };
 
+  
+
   useEffect(() => {
     dispatch(loadReviews());
   }, [dispatch, upd]);
