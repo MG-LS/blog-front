@@ -1,12 +1,22 @@
 .main_div{
     position: relative;
+  
+}
+.prosto__probel{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.all_main{
+    background-color: #fff; 
+    border: 2px solid gray;
+    border-radius: 8px;
 }
 .img{
     width: 180px;
     height: 180px;
     border-radius: 50%;
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     margin-top: 200px;
     margin-left: 100px;
 }
@@ -23,7 +33,7 @@
     background-image: url('https://forums.minecraftforge.net/uploads/monthly_2021_10/ash-edmonds-0aWZdK8nK2I-unsplash.jpg.23e3ec169807232af0ab121755d37ac8.jpg');
     background-size: cover;
     height: 300px;
-    width: 900px;
+
 }
 .nick__name{
     margin-top: 350px;
@@ -40,11 +50,11 @@
     font-size: 18px;
 }
 .border__radius{
+
     margin-left: 300px;
-    margin-top: 30px;
     background-color: #fff;
-    border: 2px solid gray;
-    border-radius: 8px;
+     border: 2px solid gray;
+    border-radius: 8px; 
     width: 900px;
     height: 600px;
 }
