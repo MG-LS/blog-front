@@ -12,7 +12,6 @@ import { Dropdown } from "react-bootstrap";
 const Header = () => {
   const id = useSelector((state) => state.auth.userId)
   const token = useSelector((state) => state.auth.token);
-  const id = useSelector((state) => state.auth.userId)
 
   const unSign = () => {
     localStorage.removeItem("token");

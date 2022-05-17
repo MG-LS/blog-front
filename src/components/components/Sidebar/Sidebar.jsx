@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./sidebar.css"
-import {RiDraftFill} from 'react-icons/ri'
+import "./sidebar.css";
+// import {RiDraftFill} from 'react-icons/ri'
 const Sidebar = () => {
   return (
     <>
@@ -13,23 +13,33 @@ const Sidebar = () => {
         <ul className="sidebar-list">
           <li className="sidebar-item">
             <span class="material-symbols-outlined">feed</span>
-            <Link className="sidebar-link" to={"/post"}>Лента</Link>
+            <Link className="sidebar-link" to={"/post"}>
+              Лента
+            </Link>
           </li>
           <li className="sidebar-item">
             <span class="material-symbols-outlined">explore</span>
-            <Link className="sidebar-link" to={"/popular"}>Популярное</Link>
+            <Link className="sidebar-link" to={"/popular"}>
+              Популярное
+            </Link>
           </li>
           <li className="sidebar-item">
             <span class="material-symbols-outlined">collections_bookmark</span>
-            <Link className="sidebar-link" to={"/bookmarks"}>Закладки</Link>
+            <Link className="sidebar-link" to={"/bookmarks"}>
+              Закладки
+            </Link>
           </li>
           <li className="sidebar-item">
-          <RiDraftFill className="react__icon-blogs"/>
-            <Link className="sidebar-link" to={"/blog"}>Блоги</Link>
+            <span class="material-symbols-outlined">border_color</span>
+            <Link className="sidebar-link" to={"/blog"}>
+              Блоги
+            </Link>
           </li>
           <li className="sidebar-item">
             <span class="material-symbols-outlined">info</span>
-            <Link className="sidebar-link" to={"/about"}>О нас</Link>
+            <Link className="sidebar-link" to={"/about"}>
+              О нас
+            </Link>
           </li>
         </ul>
       </div>

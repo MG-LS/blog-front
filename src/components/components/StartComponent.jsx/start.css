@@ -86,6 +86,7 @@ p {
 }
 
 .features-title span {
+  background-clip: text;
   background-image: linear-gradient(
     90deg,
     rgba(131, 58, 180, 1) 0%,
@@ -139,6 +140,33 @@ p {
   background-image: url("../../img/reviews-background.png");
 }
 
+.review-list {
+  max-height: 700px;
+  width: 1100px;
+  margin: auto;
+  overflow-y: scroll;
+}
+
+.review-list::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.review-list::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.review-list::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #c8c8c8;
+}
+
 .reviews-title {
   text-align: center;
   font-size: 35px;
@@ -155,6 +183,11 @@ p {
 
 .add-box .material-symbols-outlined:hover {
   color: #1f66d0;
+}
+
+.warning-sign {
+  color: rgb(176, 10, 10);
+  text-align: center;
 }
 
 .added-window {
