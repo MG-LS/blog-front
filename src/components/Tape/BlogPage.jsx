@@ -19,7 +19,7 @@ const BlogPage = () => {
   const userMap = user.map((item) => item);
 
   const userImg = useSelector((state) =>
-    state.imgReducer.users.find((user) => user)
+    state.imgReducer.users.find((user) => user.img)
   );
 
   const dispatch = useDispatch();

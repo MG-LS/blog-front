@@ -131,13 +131,14 @@
 
 .tape_blog_main {
   width: 100%;
+  margin: auto;
 }
 .tape_blog_info {
-  width: 70%;
+  width: 90%;
   margin: auto;
 }
 .tape_blog_img {
-  width: 70%;
+  width: 90%;
   margin: auto;
   padding-top: 10px;
 }
@@ -146,13 +147,22 @@
   margin: auto;
 }
 .tape_blog_title {
-  width: 80%;
+  width: 100%;
   margin: auto;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 18px;
 }
 .tape__text {
-  width: 80%;
+  width: 100%;
   margin: auto;
   
+  
+}
+.tape_main_blog {
+  width: 60%;
+  margin-left: 278px;
+  border-left: 2px solid rgba(128, 128, 128, 0.253);
+  border-right: 2px solid rgba(128, 128, 128, 0.253);
+  margin: auto;
+  padding-top: 100px;
 }

@@ -96,7 +96,7 @@ export const loadBlogComments = () => {
   return async (dispatch) => {
     try {
       dispatch({ type: "comments/fetch/pending" });
-      const res = await fetch("http://localhost:8000/comments");
+      const res = await fetch("http://localhost:8000/comment");
       const data = await res.json();
       dispatch({ type: "comments/fetch/fulfilled", payload: data });
     } catch (e) {
@@ -114,10 +114,9 @@ export const postBlogComt = (id, comt, idUser) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ text: comt, blog: id, user: idUser }),
+        body: JSON.stringify({ text: comt, user: idUser, blog: id }),
       });
       const data = await post.json();
-      console.log(data);
       dispatch({ type: "comments/fetch/add/fulfilled", payload: data });
     } catch (e) {
       dispatch({ type: "comments/fetch/add/rejected", error: e.toString() });
@@ -151,7 +150,7 @@ export const deleteBlogComments = (id) => {
   return async (dispatch) => {
     try {
       dispatch({ type: "comments/fetch/delete/pending" });
-      const delete_fetch = await fetch(`http://localhost:8000/comments/${id}`, {
+      const delete_fetch = await fetch(`http://localhost:8000/comment/${id}`, {
         method: "DELETE",
       });
       dispatch({ type: "comments/fetch/delete/fulfilled", payload: id });

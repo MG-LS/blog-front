@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { loadBlog } from "../../redux/reducers/Blog";
+import { loadBlogComments } from "../../redux/reducers/CommentBlog";
 import Comments from "./Comments";
 import TapeHeader from "./TapeHeader";
 const TapePage = () => {
@@ -24,10 +25,11 @@ const TapePage = () => {
     dispatch(loadBlog());
   }, [dispatch]);
 
+
   return (
     <>
       <TapeHeader />
-      <div className="main">
+      <div className="tape_main_blog">
         {blog.map((item, i) => {
           if (item._id === id) {
             return (
