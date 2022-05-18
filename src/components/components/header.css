@@ -106,4 +106,8 @@ header {
   .buttons {
     margin-left: 5%;
   }
+
+  h1 {
+    text-align: center;
+  }
 }
