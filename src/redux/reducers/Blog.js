@@ -132,7 +132,7 @@ export const loadBlog = () => {
   };
 };
 
-export const addBlog = (file, user, title, text) => {
+export const addBlog = (file, user, title, text, navigate) => {
   return async (dispatch) => {
     try {
       dispatch({ type: "add/blog/fetch/pending" });
@@ -148,6 +148,7 @@ export const addBlog = (file, user, title, text) => {
       const json = await response.json();
 
       dispatch({ type: "add/blog/fetch/fulfilled", payload: json });
+      navigate("/post")
     } catch (error) {
       dispatch({
         type: "add/blog/fetch/rejected",
@@ -228,3 +229,4 @@ export const deleteLike = (idBlog, idUser) => {
     }
   };
 };
+

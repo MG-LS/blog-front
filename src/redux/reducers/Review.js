@@ -75,7 +75,7 @@ export const loadReviews = () => {
   };
 };
 
-export const addReview = (reviewText, reviewRating) => {
+export const addReview = (userId, reviewText, reviewRating) => {
   return async (dispatch) => {
     try {
       dispatch({ type: "reviews/fetch/add/pending" })
@@ -84,7 +84,7 @@ export const addReview = (reviewText, reviewRating) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ user: "627a12da597f1fa23b3b4f8a", text: reviewText, rating: reviewRating }),
+        body: JSON.stringify({ user: userId, text: reviewText, rating: reviewRating }),
       })
       const review = await res.json()
       dispatch({ type: "reviews/fetch/add/fulfilled", payload: review })
