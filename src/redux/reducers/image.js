@@ -59,6 +59,29 @@ export const imgReducer = (state = initialState, action) => {
         ...state,
         loader: false,
         error: action.error
+      } 
+    case "profile/status/pending":
+      return{
+        ...state,
+        loader: true,
+        error: null
+      }     
+    case "profile/status/fullfilled":
+      return{
+        ...state,
+        loader: false,
+        users: state.users.map(user => {
+          if(user._id === action.payload) {
+            user.profileStatus = !user.profileStatus
+          }
+          return user;
+        })
+      }
+    case "profile/status/rejected":
+      return{
+        ...state,
+        loader: false,
+        error: action.error
       }     
     default:
       return state;
@@ -122,3 +145,21 @@ export const createNickName = (nickname,id) => {
   };
 };
 
+export const handleChecked = (id, profileStatus) => {
+  return async(dispatch)=>{
+    dispatch({type: "profile/status/pending"});
+    const res = await fetch(`http://localhost:8000/editMyProf/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({profileStatus: profileStatus})
+    });
+    if(res.status === 200){
+      const users = await res.json();
+
+      dispatch({type: 'profile/status/fullfilled', payload: id} )
+    }else{
+      const response = await res.json()
+      dispatch({type: 'profile/status/rejected', error: response.message} )
+
+    }
+  }
+}
