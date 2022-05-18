@@ -1,5 +1,3 @@
-import { response } from "express";
-
 const initialState = {
   users: [],
   loader: false,
@@ -62,25 +60,6 @@ export const imgReducer = (state = initialState, action) => {
         loader: false,
         error: action.error
       }     
-     case "profile/status/pending" :
-       return{
-         ...state,
-         loader: true,
-        error: null
-       }
-      case "profile/status/fulfilled":
-        return{
-          ...state,
-          loader: false,
-          users: action.payload,
-          error: null
-        } 
-      case "profile/status/rejected":
-      return{
-        ...state,
-        loader: false,
-        error: action.error
-      }  
     default:
       return state;
   }
@@ -143,21 +122,3 @@ export const createNickName = (nickname,id) => {
   };
 };
 
-export const changeState = (profileStatus, id) => {
-  return async(dispatch)=>{
-    dispatch({type: "profile/status/pending"});
-    const res = await fetch(`http://localhost:8000/editMyProf/${id}`, { 
-      method: "PATCH",
-      body: JSON.stringify({"lorem":"ddl"}),
-      headers: {
-        "Content-type": "application/json"
-      },
-    });
-    if(res.status === 200){
-      const response = await res.json()
-      dispatch({type: "profile/status/fulfilled", payload: response});
-    }else{
-      dispatch({type: "profile/status/rejected", error: response.message})
-    }
-  }
-}

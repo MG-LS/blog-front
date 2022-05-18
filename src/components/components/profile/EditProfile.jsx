@@ -20,13 +20,8 @@ const EditProfile = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [file, setFile] = useState();
-  const user = useSelector((state) =>
-  state.imgReducer.users.find((user) => user._id === id)
-);
 
   const [nickname, setNickname] = useState("");
-
- 
 
   const loading = useSelector((state) => state.auth.loading);
   const error = useSelector((state) => state.auth.error);
@@ -39,14 +34,9 @@ const EditProfile = () => {
     dispatch(getImage());
   }, [dispatch, id]);
 
- 
-   const handleChecked = () => {
-     if(!user.profileStatus){
-         user.profileStatus = true
-     }else{
-         user.profileStatus =false
-     }
-   }
+  const user = useSelector((state) =>
+    state.imgReducer.users.find((user) => user._id === id)
+  );
 
   const handleImage = () => {
     dispatch(addImage(id, file));
@@ -170,22 +160,17 @@ const EditProfile = () => {
                   столкнулись с такой проблемой.
                 </small>
                 <input id="full__name" type="text" value={user.email} />
-
-                 <div className="buttons__div">
+                <div className="buttons__div">
                     {user.profileStatus ?<div>Профиль открытый</div> :<div>Профиль закрытый</div>} 
 
                  <label class="checkbox-ios">
-	<input type="checkbox" onChange={(e) => handleChecked} checked={user.profileStatus}/>
+	<input type="checkbox"  checked={user.profileStatus}/>
 	<span class="checkbox-ios-switch"></span>
 </label>
 <button className="button__edit" onClick={handleImage}>
                   Обновить
                 </button>
                  </div>
-            
-	
-
-                
               </div>
             </div>
           </div>
