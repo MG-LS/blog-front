@@ -8,6 +8,7 @@ import {
 } from "../../redux/reducers/CommentBlog";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { fetchUsers } from "../../redux/fearutes/user";
 
 const Comments = () => {
   const [comt, setComt] = useState("");
@@ -20,10 +21,8 @@ const Comments = () => {
   const blogComt = useSelector((state) => state.commentsReducer.comments);
   console.log(blogComt);
 
-  const userImg = useSelector((state) =>
-    state.imgReducer.users.find((user) => user)
-  );
-  console.log(userImg);
+  const users = useSelector((state) => state.users.users);
+  console.log(users);
 
   const addComt = (e) => {
     e.preventDefault();
@@ -36,6 +35,10 @@ const Comments = () => {
 
   useEffect(() => {
     dispatch(loadBlogComments());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
   }, [dispatch]);
 
   return (
@@ -83,30 +86,46 @@ const Comments = () => {
             {/*                 
                 <!-- COMMENT 1 - START --> */}
             <div class="media">
-              <div>
-                {blogComt.map((item) => {
-                  if (item.blog === id) {
-                    return (
+              {blogComt.map((item) => {
+                if (item.blog === id) {
+                  return (
+                    <div className="prof_comt_main">
                       <div>
-                        <div className="comt_img">
-                          <img src="" alt="" />
-                        </div>
-                        <div>
-                          <p>{}</p>
-                          <div>
-                            <p>{item.text}</p>
-                          </div>
-                        </div>
-                        <div>
-                          <button onClick={() => removeComt(item._id)}>
-                            X
-                          </button>
-                        </div>
+                        {users.map((user) => {
+                          if (user._id === item.user) {
+                            return (
+                              <div className="prof_comt">
+                                <p>{user.nickname}</p>
+                                <div>
+                                  <img
+                                    className=""
+                                    src={`http://localhost:8000/${user.img}`}
+                                  />
+                                </div>
+                                <button
+                                  onClick={
+                                    item.user === idLocal
+                                      ? () => removeComt(item._id)
+                                      : null
+                                  }
+                                >
+                                  Удалить
+                                </button>
+                              </div>
+                            );
+                          }
+                        })}
                       </div>
-                    );
-                  }
-                })}
-              </div>
+                      <div className="comt_text">
+                        <div>
+                          <p>{item.text}</p>
+                        </div>
+                        <div></div>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
             </div>
           </div>
         </div>

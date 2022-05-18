@@ -1,27 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { loadBlog } from "../../../redux/reducers/Blog";
 import { addImage, getImage } from "../../../redux/reducers/image";
 import Header from "../Header";
-import EditProfile from "./EditProfile";
+import { BsPen } from "react-icons/bs";
 import "./style.css";
 
 const Profile = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
   const [file, setFile] = useState();
-  const editProfileState = useState(false);
+
+  useEffect(() => {
+    dispatch(loadBlog());
+    dispatch(getImage());
+  }, [dispatch]);
+
   const user = useSelector((state) =>
     state.imgReducer.users.find((user) => user._id === id)
   );
-  const postUser = useSelector((state) => state.blogReducer.blog);
-  console.log(postUser);
-
   console.log(user);
-  useEffect(() => {
-    dispatch(getImage());
-  }, [dispatch]);
+  const blog = useSelector((state) => state.blogReducer.blog);
+  const blogus = blog.find((item) => item.user === id);
+
+  console.log(blogus);
 
   if (!user) {
     return "loading...";
@@ -42,8 +45,9 @@ const Profile = () => {
   }
 
   return (
-    <div style={{ backgroundColor: "#fafbff" }}>
+    <div className="background__image">
       <Header />
+      <div className="prosto__probel"></div>
       <div className="border__radius">
         <div className="main_div">
           <div className="photo_back">
@@ -55,18 +59,25 @@ const Profile = () => {
                 type="file"
               />
               <div>
-                <img
-                  className="img"
-                  src={`http://localhost:8000/${user.img}`}
-                />
+                {user.img ? (
+                  <img
+                    className="img"
+                    src={`http://localhost:8000/${user.img}`}
+                  />
+                ) : (
+                  <img
+                    className="img"
+                    src={`https://upload.wikimedia.org/wikipedia/ru/thumb/c/ce/Aang.png/280px-Aang.png`}
+                  />
+                )}
               </div>
             </label>
             <div className="button__edit__profile">
               <button className="button">
-                {" "}
+             
                 <NavLink className="navLink" to={`/edit/profile/${id}`}>
-                  Редактировать профиль{" "}
-                </NavLink>{" "}
+                  Редактировать профиль
+                </NavLink>
               </button>
             </div>
 
@@ -83,9 +94,24 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="posts">
-        <div>Посты</div>
-      </div>
+
+      {blogus ? (
+        <>
+          
+          <div className="posts">
+            <p className="bsPen">
+              <BsPen /> Недавняя активность
+            </p>
+            <div className="info__post">Написал статью</div>
+            <p className="text__href">
+              {now.getDate()} {now.toDateString().substring(3, 7)}{" "}
+              <Link className="text__href1" to={`/post/${blogus._id}`}>
+                {blogus.title}
+              </Link>
+            </p>
+          </div>
+        </>
+      ) : null}
     </div>
   );
 };

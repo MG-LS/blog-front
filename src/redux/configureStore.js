@@ -3,12 +3,17 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import  {imgReducer}  from "./reducers/image";
 import auth from "./fearutes/auth";
+import {users} from "./fearutes/user";
+
 import  {blogReducer}  from "./reducers/Blog";
 import  {commentsReducer}  from "./reducers/CommentBlog";
 
 
 
-const combineReducer = combineReducers({ auth, imgReducer, blogReducer, commentsReducer });
+import { reviewsReducer } from "./reducers/Review";
+
+
+const combineReducer = combineReducers({ auth, imgReducer, blogReducer, reviewsReducer, users, commentsReducer });
 
 export const store = createStore(
   combineReducer,
