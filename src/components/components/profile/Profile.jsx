@@ -1,31 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { loadBlog } from "../../../redux/reducers/Blog";
 import { addImage, getImage } from "../../../redux/reducers/image";
 import Header from "../Header";
-import EditProfile from "./EditProfile";
+import {BsPen} from 'react-icons/bs'
 import './style.css'
 
 const Profile = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [file, setFile] = useState();
-
-  const user = useSelector((state) =>
-    state.imgReducer.users.find((user) => user._id === id)
-  );
-  const postUser = useSelector((state) => state.blogReducer.blog)
-  console.log(postUser);
-
-
-  console.log(user);
+   
   useEffect(() => {
+    dispatch(loadBlog());
     dispatch(getImage());
   }, [dispatch]);
 
 
+  const user = useSelector((state) =>
+    state.imgReducer.users.find((user) => user._id === id)
+  );
+console.log(user);
+  const blog = useSelector((state) => state.blogReducer.blog);
+  const blogus = blog.find((item) => item.user === id)
 
-  if (!user) {
+console.log(blogus);
+
+
+
+ 
+
+
+
+  if (!user ) {
     return "loading...";
   }
 
@@ -47,7 +55,6 @@ const Profile = () => {
 
 
 
-
   return (
   
     <div className="background__image">
@@ -59,7 +66,8 @@ const Profile = () => {
             <label htmlFor="upload_photo">
               <input id="upload_photo" className="file" onChange={(e) => setFile(e.target.files[0])} type="file" />
               <div>
-                <img className="img" src={`http://localhost:8000/${user.img}`} />
+
+              {user.img ? <img className="img"   src={`http://localhost:8000/${user.img}`} /> :  <img className="img"   src={`https://upload.wikimedia.org/wikipedia/ru/thumb/c/ce/Aang.png/280px-Aang.png`} />} 
               </div>
 
             </label>
@@ -87,33 +95,19 @@ const Profile = () => {
           </div>
 
         </div>
-            </div>
-
-            <div >
-              <h1 className="nick__name">
-                {message} {user.nickname}
-              </h1>
-              <p className="id_p">
-                {user._id}
-
-              </p>
-              <p>
-
-              </p>
-              <p className="joined__to">
-                {`Вы зарегестрированы с ${user.updatedAt.substring(0, 10)}`}
-              </p>
-            </div>
+           
           </div>
 
-        </div>
-      </div>
+
+     
+
+{blogus ? (<> <div className="posts">
+
+<p className="bsPen">< BsPen />  Недавняя активность</p><div className="info__post">Написал статью</div><p className="text__href"  >{now.getDate()} {now.toDateString().substring(3,7)} <Link className="text__href1" to={`/post/${blogus._id}`}>{blogus.title}</Link></p> </div> </>): null} 
+      
 
 
-
-      <div className="posts">
-        <h1>Посты</h1>
-      </div>
+     
     </div>
 
   );
