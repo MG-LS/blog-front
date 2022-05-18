@@ -14,7 +14,7 @@ const UserProfile = () => {
   }, [dispatch]);
 
 console.log(oneUser);
-  return <div></div>;
+  return <div>{oneUser}</div>;
 };
 
 export default UserProfile;
