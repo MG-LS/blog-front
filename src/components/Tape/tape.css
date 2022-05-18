@@ -1,8 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+
 .tape_main {
   width: 60%;
   margin-left: 278px;
@@ -10,37 +14,43 @@
   border-right: 2px solid rgba(128, 128, 128, 0.253);
   padding-top: 100px;
 }
+
 .tape_map_main {
   width: 100%;
-  height: 270px;
-  padding-top: 10px;
-  border-top: 2px solid rgba(128, 128, 128, 0.253);
+  height: 370px;
 }
+
 .link {
   color: black;
   text-decoration: none;
 }
+
 .link :hover {
   color: black;
 }
+
 .tape_title {
   color: black;
   font-size: 18px;
 }
+
 .tape_text p {
   color: gray;
   font-size: 16px;
   text-align: justify;
 }
+
 .tape_blog {
   width: 90%;
   height: 230px;
   margin: auto;
 }
+
 .tape_info_main {
   width: 90%;
   display: flex;
 }
+
 .tape_header {
   width: 90%;
   height: 60px;
@@ -48,25 +58,84 @@
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
 .tape_header img {
   width: 50px;
   border-radius: 10px;
 }
+
 .tape_header p {
   padding-left: 10px;
   font-size: 25px;
   line-height: 40px;
 }
+
 .tape_info {
   width: 90%;
   margin: auto;
   display: flex;
 }
+
 .tape_img {
+  width: 220px;
+}
+
+.tape_blog {
+  width: 90%;
+  height: 300px;
+  padding: 20px;
+  padding-top: 100px;
+  border-bottom: 1px solid black;
+  font-family: sans-serif;
+}
+
+.tape_text {
+  padding-left: 10px;
+}
+
+.tape_st {
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tape_profile_img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.tape_blog_div {
+  width: 90%;
+  margin-top: 10%;
+
+}
+
+.tape_title {
+  font-size: 22px;
+  font-weight: 500;
+  border-bottom: 1px solid black;
+}
+
+.tape_img_comm {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.tape_icon {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tape_user {
+  width: 50%;
+  margin: auto;
   padding-left: 10px;
   width: 230px;
   border-radius: 4px;
 }
+
 .tape_text_info {
   width: 800px;
   height: 150px;
@@ -75,54 +144,74 @@
   border-radius: 10px;
   background-color: rgba(128, 128, 128, 0.178);
 }
+
 .tape_text_info p {
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .tape_footer {
   padding-top: 10px;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
+
 .tape_footer img {
   width: 28px;
 }
+
 .tape_header_main {
   width: 100%;
+  height: 105px;
   background-color: rgba(0, 0, 0, 0.103);
 }
+
 .tape_header_blog {
-  width: 60%;
+  width: 870px;
   margin: auto;
+}
+
+.tape_profile_post a {
   display: flex;
+  padding: 10px 0;
+  text-decoration: none;
+  color: black;
   justify-content: space-between;
+  padding: 20px 100px;
+  align-items: center;
 }
-.tape_profile_post {
-  width: 300px;
-  display: flex;
-  padding: 10px;
-}
+
 .tape_profile_post img {
-  width: 50px;
-  border-radius: 10px;
+  width: 110px;
+  object-fit: cover;
+  border-radius: 100px;
 }
+
+.header__nickaname {
+  font-size: 30px;
+  font-family: "Montserrat";
+}
+
 .tape_profile_post p {
   width: 50px;
   font-size: 22px;
   padding-left: 10px;
 }
+
 .tape_profile_user {
   padding: 10px;
   width: 200px;
   display: flex;
 }
+
 .tape_profile_user img {
   width: 50px;
   border-radius: 10px;
 }
+
 .tape_profile_user button {
   width: 150px;
   height: 50px;
@@ -132,27 +221,31 @@
 .tape_blog_main {
   width: 100%;
 }
+
 .tape_blog_info {
   width: 70%;
   margin: auto;
 }
+
 .tape_blog_img {
   width: 70%;
   margin: auto;
   padding-top: 10px;
 }
+
 .tape_blog_info img {
   width: 100%;
   margin: auto;
 }
+
 .tape_blog_title {
   width: 80%;
   margin: auto;
   text-align: center;
   padding-top: 20px;
 }
+
 .tape__text {
   width: 80%;
   margin: auto;
-  
 }

@@ -2,52 +2,57 @@ import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getImage } from "../../redux/reducers/image";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { addSub, fetchUsers } from "../../redux/fearutes/user";
 
 const TapeHeader = () => {
-
   const dispatch = useDispatch();
-
-  const idLocal = localStorage.getItem("id");
   const { id } = useParams();
-
-
   const userImg = useSelector((state) =>
     state.imgReducer.users.find((user) => user.img)
   );
+  const userBlog = useSelector((state) => state.blogReducer.blog);
+  const users = useSelector((state) => state.users.users);
 
-
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getImage());
   }, [dispatch]);
 
-
+  if (!users) {
+    return "loading...";
+  }
   if (!userImg) {
     return "loading...";
   }
 
   return (
-    <>
-      <div className="tape_header_main">
-        <div className="tape_header_blog">
-          <div className="tape_profile_post">
-            <img className="" src={`http://localhost:8000/${userImg.img}`} />
-            <p>{userImg.nickname}</p>
-          </div>
-          <div className="tape_profile_user">
-            <button type="button" 
-            // onClick={() => addSub(id)}
-            class="btn btn-outline-primary">
-              Подписаться
-            </button>
-            <div>
-            <img className="" src={`http://localhost:8000/${userImg.img}`} />
-            </div>
-          </div>
-        </div>
+    <div className="tape_header_main">
+      <div className="tape_header_blog">
+        {userBlog.map((item) => {
+          return users.map((user) => {
+            if (item._id === id && item.user === user._id) {
+              return (
+                <div className="tape_profile_post" key={item._id}>
+                  <Link to={`/user/${user._id}`}>
+                    <img
+                      className=""
+                      src={`http://localhost:8000/${user.img}`}
+                    />
+                    <div>
+                      <span className="header__nickaname">{user.nickname}</span>
+                    </div>
+                  </Link>
+                </div>
+              );
+            }
+          });
+        })}
       </div>
-    </>
+    </div>
   );
 };
 

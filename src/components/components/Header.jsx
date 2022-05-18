@@ -1,19 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./header.css";
 import { Button, DropdownButton } from "react-bootstrap";
 import logo from "../img/logo.png";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import WeatherApp from "./profile/Weather/WeatherApp";
 import Example from "./Canvas";
 import { Dropdown } from "react-bootstrap";
+import { fetchOneUser, fetchUsers } from "../../redux/fearutes/user";
 
 const Header = () => {
-  const id = useSelector((state) => state.auth.userId)
+
+  const dispatch = useDispatch();
+  const id = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
+  useEffect(() => {
+    dispatch(fetchUsers());
+    dispatch(fetchOneUser());
+  }, [dispatch]);
 
 
+  const users = useSelector((state) => state.users.users);
   const unSign = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("id");
@@ -27,14 +35,17 @@ const Header = () => {
   };
 
 
-  
+  const filteredNames = users.filter((item) => {
+    return item.nickname.includes(value);
+  });
+
+
   return (
     <>
       <header>
         <div className="container">
           <div className="header__inner">
             <div className="flexBlock">
-
               <Link to={"/"}>
                 <div>
                   <img className="logo" src={logo} alt="error" />
@@ -69,14 +80,17 @@ const Header = () => {
               <Button className="headerBtn coll">Написать</Button>
               <Button className="headerBtn coll">Пусто</Button>
 
-              {token ?(
-            <Button className="headerBtn prof"><Link to={`/profile/${id}`}>Профиль</Link> </Button>
+              {token ? (
+                <Button className="headerBtn prof">
+                  <Link to={`/profile/${id}`}>Профиль</Link>{" "}
+                </Button>
+              ) : null}
 
-            ) : null}
-
-              {id ? (<Link to={`/profile/${id}`}>
-                <Button className="headerBtn coll">Профиль</Button>
-              </Link>) : null}
+              {id ? (
+                <Link to={`/profile/${id}`}>
+                  <Button className="headerBtn coll">Профиль</Button>
+                </Link>
+              ) : null}
 
               {token ? (
                 <Link to={"/"}>
@@ -93,7 +107,26 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {value && <div className="modalw">wind</div>}
+      {value && (
+        <div className="modalw">
+          {filteredNames.map((item) => {
+            return (
+              <Link className="linkToUser" to={`/user/${item.id}`}>
+                <div className="finderUsers">
+                  <h3 className="userName">{item.nickname}</h3>
+                  <div>
+                    <img
+                      className="finderImg"
+                      src={`http://localhost:8000/${item.img}`}
+                      alt="none"
+                    />
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };
