@@ -44,7 +44,10 @@ const Starting = () => {
           {Array.from({ length: 4 }).map((_, idx) => (
             <Col>
               <Card>
-                <CardImg variant="top" src="holder.js/100px160" />
+                <CardImg
+                  variant="top"
+                  src="https://it-aurora.ru/wp-content/uploads/2021/03/avtomatizaciya-malogo-biznesa.jpg"
+                />
                 <Card.Body>
                   <Card.Title>Card title</Card.Title>
                   <Card.Text>
@@ -59,7 +62,7 @@ const Starting = () => {
         </Row>
         <div className="questions">
           <Accordion>
-            <Accordion.Item eventKey="0">
+            <Accordion.Item className="question" eventKey="0">
               <Accordion.Header>Вопрос 1</Accordion.Header>
               <Accordion.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -71,7 +74,7 @@ const Starting = () => {
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="1">
+            <Accordion.Item className="question" eventKey="1">
               <Accordion.Header>Вопрос 2</Accordion.Header>
               <Accordion.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -83,7 +86,7 @@ const Starting = () => {
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="2">
+            <Accordion.Item  className="question"eventKey="2">
               <Accordion.Header>Вопрос 3</Accordion.Header>
               <Accordion.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -95,7 +98,7 @@ const Starting = () => {
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="3">
+            <Accordion.Item className="question" eventKey="3">
               <Accordion.Header>Вопрос 4</Accordion.Header>
               <Accordion.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -63,6 +63,61 @@
   display: flex;
 }
 .tape_img {
+  width: 220px;
+}
+
+.tape_blog {
+  width: 90%;
+  height: 300px;
+  padding: 20px;
+  padding-top: 100px;
+  border-bottom: 1px solid black;
+  font-family: sans-serif;
+}
+
+.tape_text {
+  padding-left: 10px;
+}
+
+.tape_st {
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tape_profile_img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.tape_blog_div {
+  width: 90%;
+  margin-top: 10%;
+
+}
+
+.tape_title {
+  font-size: 22px;
+  font-weight: 500;
+  border-bottom: 1px solid black;
+}
+
+.tape_img_comm {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.tape_icon {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tape_user {
+  width: 50%;
+  margin: auto;
+=======
   padding-left: 10px;
   width: 230px;
   border-radius: 4px;
