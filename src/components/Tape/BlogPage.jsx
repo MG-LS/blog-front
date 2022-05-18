@@ -11,12 +11,13 @@ import imgLikeRed from "../img/heartRed.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, useParams } from "react-router-dom";
 import "./tape.css";
+import { fetchUsers } from "../../redux/fearutes/user";
 
 const BlogPage = () => {
   const blog = useSelector((state) => state.blogReducer.blog);
   const idLocal = localStorage.getItem("id");
   const idParams = useParams().id;
-  const user = useSelector((state) => state.imgReducer);
+  const users = useSelector((state) => state.users.users);
 
   const userImg = useSelector((state) =>
     state.imgReducer.users.find((user) => user.img)
@@ -29,12 +30,10 @@ const BlogPage = () => {
 
   const addLikeHandle = (id) => {
     dispatch(Like(id, idLocal));
-
   };
 
   const deleteLikeHandle = (id) => {
     dispatch(deleteLike(id, idLocal));
-
   };
 
   useEffect(() => {
@@ -45,6 +44,14 @@ const BlogPage = () => {
     dispatch(getImage());
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+  if (!users) {
+    return "loading";
+  }
+  // console.log(user);
+  // console.log(blog);
   if (!userImg) {
     return "loading...";
   }
@@ -58,16 +65,22 @@ const BlogPage = () => {
           <>
             <div className="tape_map_main">
               <div className="tape_blog">
-                <div className="tape_header">
-                  <div>
-                    <img
-                      className=""
-                      src={`http://localhost:8000/${userImg.img}`}
-                    />
-                  </div>
-                  <p>{userImg.nickname}</p>
-                  <div></div>
-                </div>
+                {users.map((user) => {
+                  if (user._id === item.user) {
+                    return (
+                      <div className="tape_header">
+                        <div>
+                          <img
+                            className=""
+                            src={`http://localhost:8000/${user.img}`}
+                          />
+                        </div>
+                        <p>{user.nickname}</p>
+                      </div>
+                    );
+                  }
+                })}
+
                 <div className="tape_info">
                   <Link to={`/post/${item._id}`} className="link">
                     <div className="tape_info_main">
