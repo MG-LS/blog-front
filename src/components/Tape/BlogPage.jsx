@@ -19,6 +19,7 @@ const BlogPage = () => {
   const idParams = useParams().id;
   const users = useSelector((state) => state.users.users);
 
+  console.log(blog);
   const userImg = useSelector((state) =>
     state.imgReducer.users.find((user) => user.img)
   );

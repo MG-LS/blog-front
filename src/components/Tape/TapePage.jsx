@@ -11,6 +11,7 @@ const TapePage = () => {
   const idUser = localStorage.getItem("id");
 
   const blog = useSelector((state) => state.blogReducer.blog);
+  console.log(blog);
 
   const [comt, setComt] = useState("");
 
