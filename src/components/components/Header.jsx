@@ -12,8 +12,13 @@ import { fetchOneUser, fetchUsers } from "../../redux/fearutes/user";
 
 const Header = () => {
 
+<<<<<<< HEAD
+  const id = useSelector((state) => state.auth.userId)
+
+=======
   const dispatch = useDispatch();
   const id = useSelector((state) => state.auth.userId);
+>>>>>>> 4bfc3d48ac44234f8da90a3b80bc694e30f19d46
   const token = useSelector((state) => state.auth.token);
   useEffect(() => {
     dispatch(fetchUsers());

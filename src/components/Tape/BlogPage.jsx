@@ -25,7 +25,7 @@ const BlogPage = () => {
   );
 
   const userBlog = useSelector((state) =>
-    state.imgReducer.users.find((user) => user)
+    state.imgReducer.users.find((user) => user._id)
   );
   const dispatch = useDispatch();
 
