@@ -49,12 +49,12 @@ const BlogPage = () => {
     dispatch(fetchUsers());
   }, [dispatch]);
   if (!users) {
-    return "loading";
+    return "loadinggg";
   }
   // console.log(user);
-  // console.log(blog);
+  // console.log(userImg);
   if (!userImg) {
-    return "loading...";
+    return "loadinggg...";
   }
   return (
     <div className="tape_main">
