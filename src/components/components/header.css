@@ -62,7 +62,8 @@ header {
 .buttons {
   width: 30%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin: auto;
 }
 
 .prof {
@@ -129,11 +130,35 @@ header {
     display: block;
   }
 
-  .buttons {
-    margin-left: 5%;
-  }
-
   h1 {
     text-align: center;
+  }
+
+  .header__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttons {
+    padding-top: 3%;
+
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .buttons {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 1270px) {
+  .header__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttons {
+    margin-top: 3%;
   }
 }

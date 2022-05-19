@@ -14,7 +14,7 @@ const Starting = () => {
         <div className="startBlokc">
           <div>
             <div>
-              <h1>
+              <h1 className="startingHeading">
                 <span className="purple">Home</span> for tech <br />
                 writers and
                 <br /> readers
@@ -86,7 +86,7 @@ const Starting = () => {
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item  className="question"eventKey="2">
+            <Accordion.Item className="question" eventKey="2">
               <Accordion.Header>Вопрос 3</Accordion.Header>
               <Accordion.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
