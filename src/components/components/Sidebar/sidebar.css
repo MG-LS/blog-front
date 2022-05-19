@@ -3,13 +3,14 @@
   z-index: 3;
   top: 75px;
   padding: 50px 20px 50px 0;
-  padding-left: 100px;
   border-right: 2px solid rgba(220, 220, 220, 0.53);
 }
-.react__icon-blogs{
+
+.react__icon-blogs {
   transition: 0.3s;
   font-size: 23px;
 }
+
 .sidebar-list {
   list-style-type: none;
 }
@@ -53,7 +54,7 @@
     margin: 0;
     padding: 0;
     border-right: 0;
-    top: 80px;
+    top: 22%;
     left: 100px;
     box-shadow: 0 0 8px 3px rgba(220, 220, 220, 0.53);
   }
@@ -96,7 +97,6 @@
 
   .sidebar {
     width: 614px;
-
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
@@ -106,5 +106,25 @@
     margin: auto;
     justify-content: center;
     box-shadow: 0 0 8px 3px rgba(220, 220, 220, 0.53);
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .sidebar {
+    width: 90%;
+  }
+
+  .sidebar-list {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1270px) {
+  .sidebar {
+    margin-top: 8%;
   }
 }
