@@ -6,6 +6,7 @@ import {
   addImage,
   createNickName,
   getImage,
+  handleChecked,
 } from "../../../redux/reducers/image";
 import Header from "../Header";
 import one from "./icons/1.png";
@@ -21,6 +22,9 @@ const EditProfile = () => {
   const { id } = useParams();
   const [file, setFile] = useState();
 
+  const userus = useSelector((state) =>  state.imgReducer.users)
+  const user = userus.find((user) => user._id === id)
+console.log(user);
   const [nickname, setNickname] = useState("");
 
   const loading = useSelector((state) => state.auth.loading);
@@ -34,9 +38,7 @@ const EditProfile = () => {
     dispatch(getImage());
   }, [dispatch, id]);
 
-  const user = useSelector((state) =>
-    state.imgReducer.users.find((user) => user._id === id)
-  );
+
 
   const handleImage = () => {
     dispatch(addImage(id, file));
@@ -44,6 +46,10 @@ const EditProfile = () => {
     dispatch(createNickName(nickname, id));
     window.location.reload();
   };
+
+  const handleActivProfile =()=>{
+    dispatch(handleChecked(id, !user.profileStatus))
+  }
 
   if (!user) {
     return "loading...";
@@ -160,9 +166,18 @@ const EditProfile = () => {
                   столкнулись с такой проблемой.
                 </small>
                 <input id="full__name" type="text" value={user.email} />
-                <button className="button__edit" onClick={handleImage}>
+                <div className="buttons__div">
+
+                 <label class="checkbox-ios">
+                 {user.profileStatus ?<div id="checkbox">Профиль закрытый</div> :<div>Профиль открытый</div>} 
+
+	<input type="checkbox" onChange={handleActivProfile} value={user.profileStatus} checked={user.profileStatus}/>
+	<span class="checkbox-ios-switch"></span>
+</label>
+<button className="button__edit" onClick={handleImage}>
                   Обновить
                 </button>
+                 </div>
               </div>
             </div>
           </div>
