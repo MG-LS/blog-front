@@ -11,20 +11,14 @@ import { Dropdown } from "react-bootstrap";
 import { fetchOneUser, fetchUsers } from "../../redux/fearutes/user";
 
 const Header = () => {
-
-<<<<<<< HEAD
-  const id = useSelector((state) => state.auth.userId)
-
-=======
   const dispatch = useDispatch();
   const id = useSelector((state) => state.auth.userId);
->>>>>>> 4bfc3d48ac44234f8da90a3b80bc694e30f19d46
   const token = useSelector((state) => state.auth.token);
+
   useEffect(() => {
     dispatch(fetchUsers());
     dispatch(fetchOneUser());
   }, [dispatch]);
-
 
   const users = useSelector((state) => state.users.users);
   const unSign = () => {
@@ -39,11 +33,9 @@ const Header = () => {
     setValue(e.target.value);
   };
 
-
-  const filteredNames = users.filter((item) => {
-    return item.nickname.includes(value);
-  });
-
+  // const filteredNames = users.filter((item) => {
+  //   return item.nickname.includes(value);
+  // });
 
   return (
     <>
@@ -112,11 +104,11 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {value && (
+      {/* {value && (
         <div className="modalw">
           {filteredNames.map((item) => {
             return (
-              <Link className="linkToUser" to={`/user/${item.id}`}>
+              <Link className="linkToUser" to={`/user/${item._id}`}>
                 <div className="finderUsers">
                   <h3 className="userName">{item.nickname}</h3>
                   <div>
@@ -131,7 +123,7 @@ const Header = () => {
             );
           })}
         </div>
-      )}
+      )} */}
     </>
   );
 };

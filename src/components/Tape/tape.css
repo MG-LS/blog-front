@@ -249,10 +249,9 @@
 .tape__text {
   width: 100%;
   margin: auto;
-<<<<<<< HEAD
-  
-  
+
 }
+
 .tape_main_blog {
   width: 60%;
   margin-left: 278px;
@@ -260,6 +259,4 @@
   border-right: 2px solid rgba(128, 128, 128, 0.253);
   margin: auto;
   padding-top: 100px;
-=======
->>>>>>> 4bfc3d48ac44234f8da90a3b80bc694e30f19d46
 }
