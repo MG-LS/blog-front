@@ -59,7 +59,8 @@ header {
 .buttons {
   width: 30%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin: auto;
 }
 
 .prof {
@@ -75,11 +76,37 @@ header {
   width: 20%;
   min-height: 10%;
   position: absolute;
-  top: 8%;
+  top: 12%;
   left: 27.8%;
   background-color: #fff;
   box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.linkToUser {
+  text-decoration: none;
+}
+
+.finderUsers {
+  display: flex;
+  justify-content: space-between;
+  padding: 2%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 1%;
+  align-items: center;
+}
+
+.finderImg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.userName {
+  font-size: 18px;
+  color: black;
 }
 
 @media screen and (max-width: 768px) {
@@ -100,7 +127,35 @@ header {
     display: block;
   }
 
+  h1 {
+    text-align: center;
+  }
+
+  .header__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
   .buttons {
-    margin-left: 5%;
+    padding-top: 3%;
+
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .buttons {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 1270px) {
+  .header__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttons {
+    margin-top: 3%;
   }
 }
