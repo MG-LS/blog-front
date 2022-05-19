@@ -29,7 +29,6 @@ const TapeHeader = () => {
   if (!userImg) {
     return "loading...";
   }
-  const meOrNot = myId === id;
   return (
     <div className="tape_header_main">
       <div className="tape_header_blog">
@@ -38,8 +37,8 @@ const TapeHeader = () => {
             if (item._id === id && item.user === user._id) {
               return (
                 <div className="tape_profile_post" key={item._id}>
-                  {meOrNot ? (
-                    <Link to={`/user/${user._id}`}>
+                  {myId === user._id ? (
+                    <Link to={`/profile/${myId}`}>
                       <img
                         className=""
                         src={`http://localhost:8000/${user.img}`}
@@ -51,7 +50,7 @@ const TapeHeader = () => {
                       </div>
                     </Link>
                   ) : (
-                    <Link to={`/profile/${myId}`}>
+                    <Link to={`/user/${user._id}`}>
                       <img
                         className=""
                         src={`http://localhost:8000/${user.img}`}
