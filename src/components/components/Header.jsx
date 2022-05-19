@@ -8,19 +8,16 @@ import { useDispatch, useSelector } from "react-redux";
 import WeatherApp from "./profile/Weather/WeatherApp";
 import Example from "./Canvas";
 import { Dropdown } from "react-bootstrap";
-import { fetchOneUser, fetchUsers } from "../../redux/fearutes/user";
+import { fetchUsers } from "../../redux/fearutes/user";
 
 const Header = () => {
-
-
   const dispatch = useDispatch();
-  const id = useSelector((state) => state.auth.userId);
+  // const id = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
+
   useEffect(() => {
     dispatch(fetchUsers());
-    dispatch(fetchOneUser());
   }, [dispatch]);
-
 
   const users = useSelector((state) => state.users.users);
   const unSign = () => {
@@ -35,11 +32,9 @@ const Header = () => {
     setValue(e.target.value);
   };
 
-
-  const filteredNames = users.filter((item) => {
-    return item.nickname.includes(value);
-  });
-
+  // const filteredNames = users.filter((item) => {
+  //   return item.nickname.includes(value);
+  // });
 
   return (
     <>
@@ -83,15 +78,15 @@ const Header = () => {
 
               {token ? (
                 <Button className="headerBtn prof">
-                  <Link to={`/profile/${id}`}>Профиль</Link>{" "}
+                  {/* <Link to={`/profile/${id}`}>Профиль</Link>{" "} */}
                 </Button>
               ) : null}
 
-              {id ? (
+              {/* {id ? (
                 <Link to={`/profile/${id}`}>
                   <Button className="headerBtn coll">Профиль</Button>
                 </Link>
-              ) : null}
+              ) : null} */}
 
               {token ? (
                 <Link to={"/"}>
@@ -108,11 +103,11 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {value && (
+      {/* {value && (
         <div className="modalw">
           {filteredNames.map((item) => {
             return (
-              <Link className="linkToUser" to={`/user/${item.id}`}>
+              <Link className="linkToUser" to={`/user/${item._id}`}>
                 <div className="finderUsers">
                   <h3 className="userName">{item.nickname}</h3>
                   <div>
@@ -127,7 +122,7 @@ const Header = () => {
             );
           })}
         </div>
-      )}
+      )} */}
     </>
   );
 };

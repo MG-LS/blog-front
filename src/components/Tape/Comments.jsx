@@ -55,18 +55,24 @@ const Comments = () => {
                   class="btn btn-normal pull-right"
                   onClick={(e) => addComt(e)}
                 >
-                  Submit
+                  Сomment
                 </button>
               </div>
 
               <fieldset>
                 <div class="row">
                   <div class="col-sm-3 col-lg-2 hidden-xs">
-                    <img
-                      class="img-responsive"
-                      src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                      alt=""
-                    />
+                    {users.map((user) => {
+                      if (user._id === idLocal) {
+                        return (
+                          <img
+                            class="img-responsive"
+                            src={`http://localhost:8000/${user.img}`}
+                            alt=""
+                          />
+                        );
+                      }
+                    })}
                   </div>
                   <div class="form-group col-xs-12 col-sm-9 col-lg-10">
                     <textarea

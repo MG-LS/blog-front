@@ -49,12 +49,12 @@ const BlogPage = () => {
     dispatch(fetchUsers());
   }, [dispatch]);
   if (!users) {
-    return "loading";
+    return "loadinggg";
   }
   // console.log(user);
-  // console.log(blog);
+  // console.log(userImg);
   if (!userImg) {
-    return "loading...";
+    return "loadinggg...";
   }
   return (
     <div className="tape_main">
@@ -90,7 +90,7 @@ const BlogPage = () => {
                           <p className="tape_title">{item.title}</p>
                         </div>
                         <div className="tape_text">
-                          <p>{item.text.substr(0, 200) + "..."}</p>{" "}
+                          <p>{item.text.substr(0, 100) + "..."}</p>{" "}
                         </div>
                       </div>
                       <div key={i}>
