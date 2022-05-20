@@ -4,21 +4,10 @@ import thunk from "redux-thunk";
 import  {imgReducer}  from "./reducers/image";
 import auth from "./fearutes/auth";
 import {users} from "./fearutes/user";
-<<<<<<< HEAD
 import  {blogReducer}  from "./reducers/Blog";
 import  {commentsReducer}  from "./reducers/CommentBlog";
 import { reviewsReducer } from "./reducers/Review";
 
-=======
-
-import  {blogReducer}  from "./reducers/Blog";
-import  {commentsReducer}  from "./reducers/CommentBlog";
-
-
-
-import { reviewsReducer } from "./reducers/Review";
-
->>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
 
 const combineReducer = combineReducers({ auth, imgReducer, blogReducer, reviewsReducer, users, commentsReducer });
 

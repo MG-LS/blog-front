@@ -4,10 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./start.css";
 import Features from "./Features";
 import Reviews from "./Reviews";
-<<<<<<< HEAD
-=======
 import Footer from "../Footer/Footer";
->>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
 import { Accordion, Card, CardImg, Col, Row } from "react-bootstrap";
 
 const Starting = () => {
@@ -46,11 +43,7 @@ const Starting = () => {
         <Row xs={1} md={2} className="g-4">
           {Array.from({ length: 4 }).map((_, idx) => (
             <Col>
-<<<<<<< HEAD
               <Card className="temacard">
-=======
-              <Card>
->>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
                 <CardImg
                   variant="top"
                   src="https://it-aurora.ru/wp-content/uploads/2021/03/avtomatizaciya-malogo-biznesa.jpg"
@@ -120,11 +113,8 @@ const Starting = () => {
           </Accordion>
         </div>
       </div>
-<<<<<<< HEAD
-=======
 
       <Footer />
->>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
     </section>
   );
 };
