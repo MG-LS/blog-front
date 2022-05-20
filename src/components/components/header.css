@@ -1,0 +1,180 @@
+.header__inner {
+  max-width: 1400px;
+  margin: auto;
+  display: flex !important;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  color: var(--text-primary);
+  background-color: var(--background);
+}
+
+/* .container {
+  max-width: 1400px;
+} */
+
+header {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-primary);
+  background-color: var(--background);
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+.searcher {
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+  padding-left: 10px;
+  margin-left: 20px;
+
+}
+
+.searcher_block {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+
+}
+
+.headerBtn {
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-left: 5px;
+
+}
+
+.example {
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.1);
+}
+
+.flexBlock {
+  display: flex;
+  width: 50%;
+}
+
+.buttons {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.prof {
+  margin-left: 10px;
+}
+
+#dropdown-basic-button {
+  display: none;
+}
+
+
+.modalw {
+  width: 20%;
+  min-height: 10%;
+  position: absolute;
+  top: 12%;
+  left: 27.8%;
+  background-color: #fff;
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#dropdown-basic-button {
+  display: none;
+}
+
+
+.modalw {
+  width: 20%;
+  min-height: 10%;
+  position: absolute;
+  top: 12%;
+  left: 27.8%;
+  background-color: #fff;
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.linkToUser {
+  text-decoration: none;
+}
+
+.finderUsers {
+  display: flex;
+  justify-content: space-between;
+  padding: 2%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 1%;
+  align-items: center;
+}
+
+.finderImg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.userName {
+  font-size: 18px;
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .coll {
+    display: none;
+  }
+
+  .flexBlock {
+    width: 100%;
+  }
+
+  .headerBtn a {
+    text-decoration: none;
+    color: white;
+  }
+
+  #dropdown-basic-button {
+    display: block;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .header__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttons {
+    padding-top: 3%;
+
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .buttons {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 1270px) {
+  .header__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttons {
+    margin-top: 3%;
+  }
+}

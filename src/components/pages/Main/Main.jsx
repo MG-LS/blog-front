@@ -6,13 +6,14 @@ import Starting from "../../components/StartComponent.jsx/Starting";
 import BlogPage from "../../Tape/BlogPage";
 import TapePage from "../../Tape/TapePage";
 
-const Main = () => {
+
+const Main = ({switchTheme}) => {
   const User = localStorage.getItem("id");
   return (
     <>
       <div>
-        <Header />
-        <div style={{ display: "flex" }}>
+        <Header switchTheme={switchTheme} />
+        <div className="temamain" style={{ display: "flex" }}>
           <Sidebar />
           <Starting />
         </div>
