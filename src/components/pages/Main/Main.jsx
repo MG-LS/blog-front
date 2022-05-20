@@ -6,6 +6,7 @@ import Starting from "../../components/StartComponent.jsx/Starting";
 import BlogPage from "../../Tape/BlogPage";
 import TapePage from "../../Tape/TapePage";
 
+
 const Main = ({switchTheme}) => {
   const User = localStorage.getItem("id");
   return (

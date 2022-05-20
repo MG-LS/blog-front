@@ -5,7 +5,6 @@ import { getImage } from "../../redux/reducers/image";
 import imgComm from "../img/bubble-chat.png";
 import imgLike from "../img/heart.png";
 import imgMark from "../img/bookmark.png";
-
 import imgMarkBlack from "../img/bookmarkBlack.png";
 import imgLikeRed from "../img/heartRed.png";
 
@@ -65,7 +64,6 @@ const BlogPage = () => {
 
         return (
           <>
-
             <div className="tape_map_main">
               <div className="tape_blog">
                 {users.map((user) => {
@@ -92,7 +90,8 @@ const BlogPage = () => {
                           <p className="tape_title">{item.title}</p>
                         </div>
                         <div className="tape_text">
-                          <p>{item.text.substr(0, 200) + "..."}</p>{" "}
+                          {/* <p>{item.text.substr(0, 200) + "..."}</p>{" "} */}
+                          <p>{item.text.substr(0, 100) + "..."}</p>{" "}
                         </div>
                       </div>
                       <div key={i}>
