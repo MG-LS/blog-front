@@ -3,23 +3,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./header.css";
 import { Button, DropdownButton } from "react-bootstrap";
 import logo from "../img/logo.png";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import WeatherApp from "./profile/Weather/WeatherApp";
 import Example from "./Canvas";
 import { Dropdown } from "react-bootstrap";
 import { fetchUsers } from "../../redux/fearutes/user";
 
 const Header = () => {
   const dispatch = useDispatch();
-  // const id = useSelector((state) => state.auth.userId);
+  const id = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
-
+  const users = useSelector((state) => state.users.users);
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  const users = useSelector((state) => state.users.users);
   const unSign = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("id");
@@ -32,9 +30,11 @@ const Header = () => {
     setValue(e.target.value);
   };
 
-  // const filteredNames = users.filter((item) => {
-  //   return item.nickname.includes(value);
-  // });
+  const filteredNames = users.filter((item) => {
+    if (item.nickname) {
+      return item.nickname.includes(value);
+    }
+  });
 
   return (
     <>
@@ -103,7 +103,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {/* {value && (
+      {value && (
         <div className="modalw">
           {filteredNames.map((item) => {
             return (
@@ -122,7 +122,7 @@ const Header = () => {
             );
           })}
         </div>
-      )} */}
+      )}
     </>
   );
 };

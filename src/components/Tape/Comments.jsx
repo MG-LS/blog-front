@@ -19,10 +19,10 @@ const Comments = () => {
   const idLocal = localStorage.getItem("id");
 
   const blogComt = useSelector((state) => state.commentsReducer.comments);
-  console.log(blogComt);
+
 
   const users = useSelector((state) => state.users.users);
-  console.log(users);
+
 
   const addComt = (e) => {
     e.preventDefault();
