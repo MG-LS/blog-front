@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.border__radius-deni{
+    width: 100%;
+    font-family: "Montserrat";
+    background-color: rgba(245, 245, 245, 0.596);
+    color: rgb(48, 48, 48);
+}
+.main_div-deni{
+    padding-top: 20px;
+    width: 1200px;
+    margin: auto;
+}
+.img-deni{
+    width: 320px;
+    border-radius: 10px;
+}
+.img-deni img{
+    width: 100%;
+}
+.id_p-deni{
+    width: 400px;
+    font-size: 60px;
+}
+.profile-img-deni{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 200px;
+}
+.button__edit__profile-deni{
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+}
+.button-deni{
+    border: none;
+    width: 270px;
+    border-radius: 10px;
+    font-size: 25px;
+    color: white;
+    margin-right: 70px;
+}
+.deni_btn{
+    background-color: rgb(0, 182, 0)
+}
+.deni_btn-2{
+    background-color: rgb(182, 21, 0)
+}
+.posts-deni{
+    width: 1160px;
+    margin: auto;
+}

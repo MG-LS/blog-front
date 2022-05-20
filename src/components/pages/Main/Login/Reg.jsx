@@ -10,10 +10,14 @@ const Reg = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [nickname, setNickname] = useState("");
+  
+  const loading = useSelector((state) => state.auth.loading);
   const error = useSelector((state) => state.auth.error);
   const navigate = useNavigate();
-
+  const handleChangeNickname = (e) => {
+    setNickname(e.target.value);
+  };
   const handleChangeLogin = (e) => {
     setEmail(e.target.value);
   };
@@ -21,14 +25,11 @@ const Reg = () => {
     setPassword(e.target.value);
   };
   const handleSumbit = () => {
-    dispatch(createUser(email, password));
     setEmail("");
+    setNickname("");
     setPassword("");
-    if (!error) {
-      setTimeout(() => {
-        navigate("/login");
-      }, 2000);
-    }
+
+    dispatch(createUser(email, password, nickname, navigate));
   };
   return (
     <div className="content__login">
@@ -50,6 +51,13 @@ const Reg = () => {
           <p className="textForReg">CНАЧАЛА НУЖНО ЗАРЕГИСТРИРОВАТЬСЯ</p>
           <input
             type="text"
+            placeholder="Придумайте ник"
+            className="form-control"
+            value={nickname}
+            onChange={handleChangeNickname}
+          />
+          <input
+            type="text"
             placeholder="Ваш E-Mail"
             autoFocus={true}
             className="form-control"
@@ -63,10 +71,32 @@ const Reg = () => {
             className="form-control"
             onChange={handleChangePassword}
           />
+
           <div className="btnPAPA">
-            <button className="btnDENI" onClick={handleSumbit}>
-              <span>ЗАРЕГИСТРИРОВАТЬСЯ</span>
-            </button>
+          {loading ? (
+              <div class="spinner">
+              <span>L</span>
+              <span>O</span>
+              <span>A</span>
+              <span>D</span>
+              <span>I</span>
+              <span>N</span>
+              <span>G</span>
+            </div>
+            ) : (
+              <button
+                data-text="Awesome"
+                className="btnDENI"
+                onClick={handleSumbit}
+              >
+                <span className="actual-text">
+                  &nbsp;ЗАРЕГИСТРИРОВАТЬСЯ&nbsp;
+                </span>
+                <span className="hover-text" aria-hidden="true">
+                  &nbsp;ЗАРЕГИСТРИРОВАТЬСЯ&nbsp;
+                </span>
+              </button>
+            )}
           </div>
           <a className="aforLog" href="/login">
             <p className="textForReg">Но у тебя уже есть аккаунт?</p>
