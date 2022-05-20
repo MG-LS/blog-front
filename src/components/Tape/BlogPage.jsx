@@ -90,7 +90,7 @@ const BlogPage = () => {
                           <p className="tape_title">{item.title}</p>
                         </div>
                         <div className="tape_text">
-                          <p>{item.text.substr(0, 200) + "..."}</p>{" "}
+                          <p>{item.text.substr(0, 100) + "..."}</p>{" "}
                         </div>
                       </div>
                       <div key={i}>

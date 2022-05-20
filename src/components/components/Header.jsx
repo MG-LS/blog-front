@@ -14,10 +14,9 @@ const Header = () => {
   const id = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
   const users = useSelector((state) => state.users.users);
-
-  // useEffect(() => {
-  //   dispatch(fetchUsers());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   const unSign = () => {
     localStorage.removeItem("token");
@@ -79,15 +78,15 @@ const Header = () => {
 
               {token ? (
                 <Button className="headerBtn prof">
-                  <Link to={`/profile/${id}`}>Профиль</Link>{" "}
+                  {/* <Link to={`/profile/${id}`}>Профиль</Link>{" "} */}
                 </Button>
               ) : null}
 
-              {id ? (
+              {/* {id ? (
                 <Link to={`/profile/${id}`}>
                   <Button className="headerBtn coll">Профиль</Button>
                 </Link>
-              ) : null}
+              ) : null} */}
 
               {token ? (
                 <Link to={"/"}>

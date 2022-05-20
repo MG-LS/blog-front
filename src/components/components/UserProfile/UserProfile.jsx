@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-
 import Header from "../Header";
 import "./userprofile.style.css";
 import { addSub, deleteSub, fetchOneUser } from "../../../redux/fearutes/user";
@@ -9,11 +8,12 @@ import { loadBlog } from "../../../redux/reducers/Blog";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
-  const loader = useSelector((state) => state.users.loading);
   const { id } = useParams();
   const oneUser = useSelector((state) => state.users.user);
   const myId = localStorage.getItem("id");
   const posts = useSelector((state) => state.blogReducer.blog)
+  const loader = useSelector((state) => state.users.loading);
+
   useEffect(() => {
     dispatch(fetchOneUser(id));
   }, [dispatch]);
