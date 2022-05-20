@@ -7,10 +7,10 @@ import { addSub, deleteSub, fetchOneUser } from "../../../redux/fearutes/user";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
-  const loader = useSelector((state) => state.users.loading);
   const { id } = useParams();
   const oneUser = useSelector((state) => state.users.user);
   const myId = localStorage.getItem("id");
+  const loader = useSelector((state) => state.users.loading);
 
   useEffect(() => {
     dispatch(fetchOneUser(id));
@@ -25,10 +25,7 @@ const UserProfile = () => {
   if (loader) {
     return "Loader";
   }
-  const subscribtion = oneUser.subscrib.find(
-    (item) => item.subscribtion === myId
-  );
-
+  const subscribtion = oneUser.subscrib.find((item) => item.subscribtion === myId);
   return (
     <div className="userProfile__lol-kek">
       <Header />

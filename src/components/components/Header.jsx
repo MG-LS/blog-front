@@ -8,16 +8,15 @@ import { useDispatch, useSelector } from "react-redux";
 import WeatherApp from "./profile/Weather/WeatherApp";
 import Example from "./Canvas";
 import { Dropdown } from "react-bootstrap";
-import { fetchOneUser, fetchUsers } from "../../redux/fearutes/user";
+import { fetchUsers } from "../../redux/fearutes/user";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const id = useSelector((state) => state.auth.userId);
+  // const id = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
 
   useEffect(() => {
     dispatch(fetchUsers());
-    dispatch(fetchOneUser());
   }, [dispatch]);
 
   const users = useSelector((state) => state.users.users);
@@ -79,15 +78,15 @@ const Header = () => {
 
               {token ? (
                 <Button className="headerBtn prof">
-                  <Link to={`/profile/${id}`}>Профиль</Link>{" "}
+                  {/* <Link to={`/profile/${id}`}>Профиль</Link>{" "} */}
                 </Button>
               ) : null}
 
-              {id ? (
+              {/* {id ? (
                 <Link to={`/profile/${id}`}>
                   <Button className="headerBtn coll">Профиль</Button>
                 </Link>
-              ) : null}
+              ) : null} */}
 
               {token ? (
                 <Link to={"/"}>
