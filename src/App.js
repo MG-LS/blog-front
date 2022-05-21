@@ -1,4 +1,4 @@
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { store } from "./redux/configureStore";
 import "./App.css";
@@ -20,8 +20,10 @@ import WeatherApp from "./components/components/profile/Weather/WeatherApp";
 import TapePage from "./components/Tape/TapePage";
 import MainTapeBlog from "./components/Tape/MainTapeBlog";
 import UserProfile from "./components/components/UserProfile/UserProfile";
+import Messenger from "./components/pages/Messenger/Messenger";
 
 function App() {
+  const user = useSelector((state) => state.auth.userId);
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useLocalStorage(
     "theme",
@@ -53,6 +55,7 @@ function App() {
             <Route path="/post" element={<MainTapeBlog />} />
             <Route path="/post/:id" element={<TapePage />} />
             <Route path="/user/:id" element={<UserProfile />} />
+            <Route path="/messenger" element={!user ? <Login /> : <Messenger />} />
           </Routes>
         </BrowserRouter>
       </Provider>

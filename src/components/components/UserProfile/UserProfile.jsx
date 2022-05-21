@@ -5,6 +5,7 @@ import Header from "../Header";
 import "./userprofile.style.css";
 import { addSub, deleteSub, fetchOneUser } from "../../../redux/fearutes/user";
 import { loadBlog } from "../../../redux/reducers/Blog";
+import { createConversation } from "../../../redux/reducers/Messenger";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,14 @@ const UserProfile = () => {
   const deleteSubs = () => {
     dispatch(deleteSub(myId, id));
   }
+  // if (loader) {
+  //   return "Loader";
+  // }
+  // if (!posts) {
+  //   return "Loader";
+  // }
+  const startConversation = (senderId, receiverId) => {
+    dispatch(createConversation(senderId, receiverId))
 
   if (!posts) {
     return "Loader";
@@ -63,6 +72,11 @@ const UserProfile = () => {
                   Подписаться
                 </button>
               )}
+              <button onClick={() => startConversation(myId, id)}>
+                <Link to={"/messenger"}>
+                Написать
+                </Link>
+              </button>
             </div>
             <div>
               <p className="joined__to-deni">{oneUser.email}</p>
