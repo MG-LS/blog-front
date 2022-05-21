@@ -13,7 +13,7 @@ const UserProfile = () => {
   const oneUser = useSelector((state) => state.users.user);
   const myId = localStorage.getItem("id");
   const posts = useSelector((state) => state.blogReducer.blog)
-  const loader = useSelector((state) => state.users.loading);
+
   
   useEffect(() => {
     dispatch(fetchOneUser(id));
@@ -27,9 +27,7 @@ const UserProfile = () => {
   const deleteSubs = () => {
     dispatch(deleteSub(myId, id));
   }
-  if (loader) {
-    return "Loader";
-  }
+
   if (!posts) {
     return "Loader";
   }

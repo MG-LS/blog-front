@@ -33,12 +33,6 @@ function App() {
   };
   return (
     <div className="App" data-theme={theme}>
-<<<<<<< HEAD
-=======
-      <button className="buttonSwitchTheme" onClick={switchTheme}>
-        Сменить тему
-      </button>
->>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
       <Provider store={store}>
         <BrowserRouter>
           <ScrollToTop />
