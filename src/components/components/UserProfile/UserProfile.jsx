@@ -14,7 +14,7 @@ const UserProfile = () => {
   const oneUser = useSelector((state) => state.users.user);
   const myId = localStorage.getItem("id");
   const posts = useSelector((state) => state.blogReducer.blog)
-  const loader = useSelector((state) => state.users.loading);
+
   
   useEffect(() => {
     dispatch(fetchOneUser(id));
@@ -36,6 +36,9 @@ const UserProfile = () => {
   // }
   const startConversation = (senderId, receiverId) => {
     dispatch(createConversation(senderId, receiverId))
+
+  if (!posts) {
+    return "Loader";
   }
   const subscribtion = oneUser.subscrib?.find(
     (item) => item.subscribtion === myId

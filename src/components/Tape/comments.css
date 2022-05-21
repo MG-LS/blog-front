@@ -193,13 +193,9 @@
   background-color: #aaaaaa5e;
   border-radius: 10px;
   margin: 10px;
-<<<<<<< HEAD
 }
-
 .prof_comt button {
   width: 60px;
-=======
->>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
   align-items: center;
 }
 
@@ -212,20 +208,17 @@ margin-bottom: 10px;  width: 60px;
 }
 .prof_comt img {
   width: 60px;
-<<<<<<< HEAD
   padding-top: 10px;
 }
 .prof_comt p {
   font-size: 20px;
   margin-bottom: 10px;
   border-radius: 10px;
-=======
   margin-bottom: 10px;
   border-radius: 10px;
 }
 .prof_comt p {
   font-size: 20px;
->>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
 }
 .prof_comt {
   width: 100%;
