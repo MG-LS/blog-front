@@ -22,11 +22,9 @@ const Profile = () => {
   const user = useSelector((state) =>
     state.imgReducer.users.find((user) => user._id === id)
   );
-console.log(user);
   const blog = useSelector((state) => state.blogReducer.blog);
   const blogus = blog.find((item) => item.user === id)
 
-console.log(blogus);
 
 
   if (!user ) {

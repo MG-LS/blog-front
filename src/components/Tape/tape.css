@@ -25,13 +25,9 @@
 }
 
 .link :hover {
-  color: black;
+  color: white;
 }
 
-.tape_title {
-  color: black;
-  font-size: 18px;
-}
 
 .tape_text p {
   color: gray;
@@ -48,6 +44,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  
   border: 2px solid rgba(0, 0, 0, 0.158);
   border-radius: 10px;
   padding: 5px;
@@ -117,6 +114,8 @@
 .tape_title {
   font-size: 20px;
   font-weight: 500;
+  color: var(--text-primary);
+  background-color: var(--background);
   border-bottom: 2px solid black;
 }
 
@@ -192,6 +191,7 @@
 .header__nickaname {
   font-size: 30px;
   font-family: "Montserrat";
+  
 }
 
 .tape_profile_post p {

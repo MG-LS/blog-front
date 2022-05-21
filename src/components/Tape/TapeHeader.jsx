@@ -8,6 +8,7 @@ import { addSub, fetchUsers } from "../../redux/fearutes/user";
 const TapeHeader = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const myId = localStorage.getItem("id");
   const userImg = useSelector((state) =>
     state.imgReducer.users.find((user) => user.img)
   );
@@ -28,7 +29,6 @@ const TapeHeader = () => {
   if (!userImg) {
     return "loading...";
   }
-
   return (
     <div className="tape_header_main">
       <div className="tape_header_blog">
@@ -37,15 +37,31 @@ const TapeHeader = () => {
             if (item._id === id && item.user === user._id) {
               return (
                 <div className="tape_profile_post" key={item._id}>
-                  <Link to={`/user/${user._id}`}>
-                    <img
-                      className=""
-                      src={`http://localhost:8000/${user.img}`}
-                    />
-                    <div>
-                      <span className="header__nickaname">{user.nickname}</span>
-                    </div>
-                  </Link>
+                  {myId === user._id ? (
+                    <Link to={`/profile/${myId}`}>
+                      <img
+                        className=""
+                        src={`http://localhost:8000/${user.img}`}
+                      />
+                      <div>
+                        <span className="header__nickaname">
+                          {user.nickname}
+                        </span>
+                      </div>
+                    </Link>
+                  ) : (
+                    <Link to={`/user/${user._id}`}>
+                      <img
+                        className=""
+                        src={`http://localhost:8000/${user.img}`}
+                      />
+                      <div>
+                        <span className="header__nickaname">
+                          {user.nickname}
+                        </span>
+                      </div>
+                    </Link>
+                  )}
                 </div>
               );
             }

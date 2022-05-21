@@ -2,7 +2,6 @@
 
 .border__radius-deni{
     width: 100%;
-    height: 80vh;
     font-family: "Montserrat";
     background-color: rgba(245, 245, 245, 0.596);
     color: rgb(48, 48, 48);
@@ -47,4 +46,8 @@
 }
 .deni_btn-2{
     background-color: rgb(182, 21, 0)
+}
+.posts-deni{
+    width: 1160px;
+    margin: auto;
 }

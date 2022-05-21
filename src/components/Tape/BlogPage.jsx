@@ -20,7 +20,6 @@ const BlogPage = () => {
   const idParams = useParams().id;
   const users = useSelector((state) => state.users.users);
 
-  console.log(blog);
   const userImg = useSelector((state) =>
     state.imgReducer.users.find((user) => user.img)
   );
@@ -49,6 +48,7 @@ const BlogPage = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
+  
   if (!users) {
     return "loadinggg";
   }
@@ -101,6 +101,9 @@ const BlogPage = () => {
                             src={`http://localhost:8000/${item.img}`}
                             alt="photo"
                           />
+                        <div className="tape_text">
+                          {/* <p>{item.text.substr(0, 200) + "..."}</p>{" "} */}
+                          <p>{item.text.substr(0, 100) + "..."}</p>{" "}
                         </div>
                       </div>
                     </Link>
