@@ -62,6 +62,14 @@ const Comments = () => {
               <fieldset>
                 <div class="row">
                   <div class="col-sm-3 col-lg-2 hidden-xs">
+<<<<<<< HEAD
+                    <img
+                      class="img-responsive"
+                      src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                      alt=""
+                    />
+=======
+>>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
                     {users.map((user) => {
                       if (user._id === idLocal) {
                         return (

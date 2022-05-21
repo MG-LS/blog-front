@@ -1,3 +1,4 @@
+
 .main_div{
     position: relative;
   
@@ -363,3 +364,4 @@ height: 24px;
 .checkbox-ios.focused .checkbox-ios-switch:before {
 	box-shadow: inset 0px 0px 4px #ff5623;
 }
+

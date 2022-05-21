@@ -2,6 +2,8 @@
   position: fixed;
   height: 100vh;
   z-index: 3;
+  color: var(--text-primary);
+  background-color: var(--background);
   top: 75px;
   padding: 50px 20px 50px 0;
   border-right: 2px solid rgba(220, 220, 220, 0.53);
@@ -27,13 +29,15 @@
 }
 
 .sidebar-item:hover {
-  background-color: rgba(220, 220, 220, 0.53);
+  color: var(--text-primary);
+  background-color: var(--background);
 }
 
 .sidebar-link {
   padding-left: 10px;
   text-decoration: none;
-  color: black;
+  color: var(--text-primary);
+  background-color: var(--background);
 }
 
 .sidebar-link:hover {
@@ -44,14 +48,16 @@
   .sidebar-list {
     display: flex;
     border: 0;
-    background-color: #fff;
+    color: var(--text-primary);
+    background-color: var(--background);
     margin: 0;
     padding: 0;
     border-right: 0;
   }
 
   .sidebar {
-    background-color: #fff;
+    color: var(--text-primary);
+    background-color: var(--background);
     margin: 0;
     padding: 0;
     border-right: 0;
@@ -65,7 +71,8 @@
   .sidebar-list {
     display: flex;
     border: 0;
-    background-color: #fff;
+    color: var(--text-primary);
+    background-color: var(--background);
     margin: 0;
     padding: 0;
     text-align: center;
@@ -76,7 +83,8 @@
 
     left: 50%;
     transform: translateX(-50%);
-    background-color: #fff;
+    color: var(--text-primary);
+    background-color: var(--background);
     margin: 0;
     padding: 0;
     border-right: 0;
@@ -90,7 +98,8 @@
   .sidebar-list {
     display: flex;
     border: 0;
-    background-color: #fff;
+    color: var(--text-primary);
+    background-color: var(--background);
     margin: 0;
     padding: 0;
     text-align: center;
@@ -100,7 +109,8 @@
     width: 614px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #fff;
+    color: var(--text-primary);
+    background-color: var(--background);
     margin: 0;
     padding: 0;
     border-right: 0;

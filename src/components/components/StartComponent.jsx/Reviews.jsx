@@ -21,6 +21,9 @@ const Reviews = () => {
   const [warningWindow, setWarningWindow] = useState(false)
   const [btnName, setBtnName] = useState(true)
 
+<<<<<<< HEAD
+  const addNewReview = () => {
+=======
   useEffect(() => {
     dispatch(loadReviews());
   }, [dispatch, upd]);
@@ -29,6 +32,7 @@ const Reviews = () => {
     if (reviews.find((review) => review.user._id === userId)) {
       return alert("У вас уже есть отзыв!")
     }
+>>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
     if (reviewRating && reviewText) {
       dispatch(addReview(userId, reviewText, reviewRating));
       setReviewText("");
@@ -48,11 +52,19 @@ const Reviews = () => {
     }
   };
 
+<<<<<<< HEAD
+  useEffect(() => {
+    dispatch(loadReviews());
+  }, [dispatch, upd]);
+
+  const delReview = (id) => {
+=======
 
   const delReview = (id, user_Id) => {
     if (user_Id !== userId) {
       return !userId ? alert("Необходимо авторизоваться") : alert("Нельзя удалить чужой отзыв")
     }
+>>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
     dispatch(deleteReview(id));
   };
 
@@ -141,6 +153,14 @@ const Reviews = () => {
         </div>
       ) : null}
       <div className="review-list">
+<<<<<<< HEAD
+        {reviews.map((item) => {
+          return (
+            <div key={item._id} className="single-review">
+              <span
+                class="material-symbols-outlined"
+                onClick={() => delReview(item._id)}
+=======
         {reviews.length ? 
         (reviews.map((item) => {
           return (
@@ -149,6 +169,7 @@ const Reviews = () => {
               <span
                 class="material-symbols-outlined"
                 onClick={() => delReview(item._id, item.user._id)}
+>>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
               >
                 cancel
               </span>
@@ -180,8 +201,12 @@ const Reviews = () => {
               <div className="review-text">{item.text}</div>
             </div>
           );
+<<<<<<< HEAD
+        })}
+=======
         })) : null}
         
+>>>>>>> 50ec5df9417bb3fd45c1cc1e5b75c2b3d115fbac
       </div>
     </div>
   );

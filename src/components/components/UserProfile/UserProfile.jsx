@@ -9,13 +9,13 @@ import { createConversation } from "../../../redux/reducers/Messenger";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
+  const loader = useSelector((state) => state.users.loading);
   const { id } = useParams();
   const oneUser = useSelector((state) => state.users.user);
   const myId = localStorage.getItem("id");
   const posts = useSelector((state) => state.blogReducer.blog)
   const loader = useSelector((state) => state.users.loading);
-
-
+  
   useEffect(() => {
     dispatch(fetchOneUser(id));
   }, [dispatch]);
