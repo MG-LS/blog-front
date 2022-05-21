@@ -18,6 +18,12 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="sidebar-item">
+            <span class="material-symbols-outlined">mail</span>
+            <Link className="sidebar-link" to={"/messenger"}>
+              Сообщения
+            </Link>
+          </li>
+          <li className="sidebar-item">
             <span class="material-symbols-outlined">explore</span>
             <Link className="sidebar-link" to={"/popular"}>
               Популярное

@@ -7,13 +7,14 @@ import {users} from "./fearutes/user";
 
 import  {blogReducer}  from "./reducers/Blog";
 import  {commentsReducer}  from "./reducers/CommentBlog";
+import  {messengerReducer}  from "./reducers/Messenger";
 
 
 
 import { reviewsReducer } from "./reducers/Review";
 
 
-const combineReducer = combineReducers({ auth, imgReducer, blogReducer, reviewsReducer, users, commentsReducer });
+const combineReducer = combineReducers({ auth, imgReducer, blogReducer, reviewsReducer, users, commentsReducer, messengerReducer });
 
 export const store = createStore(
   combineReducer,

@@ -5,6 +5,7 @@ import Header from "../Header";
 import "./userprofile.style.css";
 import { addSub, deleteSub, fetchOneUser } from "../../../redux/fearutes/user";
 import { loadBlog } from "../../../redux/reducers/Blog";
+import { createConversation } from "../../../redux/reducers/Messenger";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const UserProfile = () => {
   const myId = localStorage.getItem("id");
   const posts = useSelector((state) => state.blogReducer.blog)
   const loader = useSelector((state) => state.users.loading);
+
 
   useEffect(() => {
     dispatch(fetchOneUser(id));
@@ -26,11 +28,14 @@ const UserProfile = () => {
   const deleteSubs = () => {
     dispatch(deleteSub(myId, id));
   }
-  if (loader) {
-    return "Loader";
-  }
-  if (!posts) {
-    return "Loader";
+  // if (loader) {
+  //   return "Loader";
+  // }
+  // if (!posts) {
+  //   return "Loader";
+  // }
+  const startConversation = (senderId, receiverId) => {
+    dispatch(createConversation(senderId, receiverId))
   }
   const subscribtion = oneUser.subscrib?.find(
     (item) => item.subscribtion === myId
@@ -64,6 +69,11 @@ const UserProfile = () => {
                   Подписаться
                 </button>
               )}
+              <button onClick={() => startConversation(myId, id)}>
+                <Link to={"/messenger"}>
+                Написать
+                </Link>
+              </button>
             </div>
             <div>
               <p className="joined__to-deni">{oneUser.email}</p>
