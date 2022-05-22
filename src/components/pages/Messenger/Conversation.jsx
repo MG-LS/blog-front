@@ -11,8 +11,8 @@ const Conversation = ({ conversation, currentUser }) => {
     const getUser = async () => {
       try {
         const res = await fetch(`http://localhost:8000/user/${friendId}`);
-        const friend = await res.json()
-        setUser(friend)
+        const friend = await res.json();
+        setUser(friend);
       } catch (error) {
         console.log(error);
       }

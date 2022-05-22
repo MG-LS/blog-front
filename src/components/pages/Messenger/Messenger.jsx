@@ -9,38 +9,40 @@ import {
   loadConversations,
   loadMessages,
 } from "../../../redux/reducers/Messenger";
-import {io} from "socket.io-client"
+import { io } from "socket.io-client";
 
 const Messenger = () => {
   const dispatch = useDispatch();
   const [currentChat, setCurrentChat] = useState(null);
   const [newMessage, setNewMessage] = useState("");
   const [arrivalMessage, setArrivalMessage] = useState(null);
-  const socket = useRef()
+  const socket = useRef();
   const userId = useSelector((state) => state.auth.userId);
 
-  const scrollRef = useRef()
+  const scrollRef = useRef();
 
   useEffect(() => {
-    socket.current = io("ws://localhost:8000/", {transports: ['websocket', 'polling', 'flashsocket']})
-    socket.current.on("getMessage", data => {
+    socket.current = io("ws://localhost:8000/", {
+      transports: ["websocket", "polling", "flashsocket"],
+    });
+    socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
-        text: data.text
-      })
-    })
-  }, [])
+        text: data.text,
+      });
+    });
+  }, []);
 
   useEffect(() => {
-    arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) &&
-    dispatch({ type: "SET_MESSAGES", payload: arrivalMessage })
-  }, [arrivalMessage, currentChat])
+    arrivalMessage &&
+      currentChat?.members.includes(arrivalMessage.sender) &&
+      dispatch({ type: "SET_MESSAGES", payload: arrivalMessage });
+  }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
-    socket.current.emit("addUser", userId)
-    socket.current.on("getUsers")
-  }, [userId])
-
+    socket.current.emit("addUser", userId);
+    socket.current.on("getUsers");
+  }, [userId]);
 
   const messages = useSelector((state) => state.messengerReducer.messages);
 
@@ -48,20 +50,19 @@ const Messenger = () => {
     (state) => state.messengerReducer.conversations
   );
 
-
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const receiverId = currentChat.members.find(member => member !== userId)
+    const receiverId = currentChat.members.find((member) => member !== userId);
 
     socket.current.emit("sendMessage", {
       senderId: userId,
       receiverId,
-      text: newMessage
-    })
+      text: newMessage,
+    });
 
-    dispatch(addMessage(userId, newMessage, currentChat._id))
-    setNewMessage("")
+    dispatch(addMessage(userId, newMessage, currentChat._id));
+    setNewMessage("");
   };
 
   useEffect(() => {
@@ -73,8 +74,8 @@ const Messenger = () => {
   }, [currentChat]);
 
   useEffect(() => {
-    scrollRef.current?.scrollIntoView({ behavior: "smooth" })
-  }, [messages])
+    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   return (
     <>
@@ -98,9 +99,9 @@ const Messenger = () => {
                   {messages.map((message) => (
                     <div ref={scrollRef}>
                       <Message
-                      message={message}
-                      own={message.sender === userId}
-                    />
+                        message={message}
+                        own={message.sender === userId}
+                      />
                     </div>
                   ))}
                 </div>

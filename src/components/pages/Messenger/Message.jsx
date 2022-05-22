@@ -1,7 +1,7 @@
-import "./message.css"
-import avatar from "../../img/avatar.jpg"
+import "./message.css";
+import avatar from "../../img/avatar.jpg";
 
-const Message = ({message, own}) => {
+const Message = ({ message, own }) => {
   return (
     <div className={own ? "message own" : "message"}>
       <div className="message-top">

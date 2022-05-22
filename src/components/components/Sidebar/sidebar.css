@@ -1,6 +1,5 @@
 .sidebar {
   position: fixed;
-  height: 100vh;
   z-index: 3;
   color: var(--text-primary);
   background-color: var(--background);
@@ -47,6 +46,7 @@
 @media screen and (max-width: 768px) {
   .sidebar-list {
     display: flex;
+    flex-wrap: wrap;
     border: 0;
     color: var(--text-primary);
     background-color: var(--background);
@@ -64,12 +64,16 @@
     top: 22%;
     left: 100px;
     box-shadow: 0 0 8px 3px rgba(220, 220, 220, 0.53);
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 
 @media screen and (max-width: 992px) {
   .sidebar-list {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     border: 0;
     color: var(--text-primary);
     background-color: var(--background);
@@ -79,8 +83,7 @@
   }
 
   .sidebar {
-    width: 614px;
-
+    width: 80%;
     left: 50%;
     transform: translateX(-50%);
     color: var(--text-primary);
@@ -106,7 +109,6 @@
   }
 
   .sidebar {
-    width: 614px;
     left: 50%;
     transform: translateX(-50%);
     color: var(--text-primary);

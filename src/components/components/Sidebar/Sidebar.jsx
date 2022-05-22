@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
-// import {RiDraftFill} from 'react-icons/ri'
 const Sidebar = () => {
   return (
     <>
